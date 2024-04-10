@@ -83,6 +83,7 @@
 								</option>
 								<option id="com.crt.advproject.link.cpp.hdrlib.567778836" name="Library" superClass="com.crt.advproject.link.cpp.hdrlib" value="com.crt.advproject.cpp.link.hdrlib.newlib.nohost" valueType="enumerated"/>
 								<option id="com.crt.advproject.link.cpp.crpenable.1678005821" superClass="com.crt.advproject.link.cpp.crpenable" value="true" valueType="boolean"/>
+								<option id="com.crt.advproject.link.cpp.multicore.slave.1844491043" superClass="com.crt.advproject.link.cpp.multicore.slave"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.429308990" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -237,4 +238,5 @@
 	<storageModule moduleId="com.crt.advproject">
 		<boardId>LPCXpresso1769-CD</boardId>
 	</storageModule>
+	<storageModule moduleId="refreshScope"/>
 </cproject>

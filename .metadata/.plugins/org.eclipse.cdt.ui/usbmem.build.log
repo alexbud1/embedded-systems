@@ -1,0 +1,92 @@
+10:00:19 **** Build of configuration Debug for project usbmem ****
+make -r -j16 all 
+Building file: ../src/DiskImg.c
+Building file: ../src/cr_startup_lpc17.c
+Building file: ../src/memory.c
+Building file: ../src/mscuser.c
+Invoking: MCU C Compiler
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__NEWLIB__ -I"C:\Users\student\Documents\f07\embedded-systems\Lib_CMSISv1p30_LPC17xx\inc" -I"C:\Users\student\Documents\f07\embedded-systems\Lib_MCU\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fmerge-constants -fmacro-prefix-map="../src/"=. -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -fstack-usage -MMD -MP -MF"src/DiskImg.d" -MT"src/DiskImg.o" -MT"src/DiskImg.d" -o "src/DiskImg.o" "../src/DiskImg.c"
+Invoking: MCU C Compiler
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__NEWLIB__ -I"C:\Users\student\Documents\f07\embedded-systems\Lib_CMSISv1p30_LPC17xx\inc" -I"C:\Users\student\Documents\f07\embedded-systems\Lib_MCU\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fmerge-constants -fmacro-prefix-map="../src/"=. -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -fstack-usage -MMD -MP -MF"src/cr_startup_lpc17.d" -MT"src/cr_startup_lpc17.o" -MT"src/cr_startup_lpc17.d" -o "src/cr_startup_lpc17.o" "../src/cr_startup_lpc17.c"
+Building file: ../src/usbcore.c
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__NEWLIB__ -I"C:\Users\student\Documents\f07\embedded-systems\Lib_CMSISv1p30_LPC17xx\inc" -I"C:\Users\student\Documents\f07\embedded-systems\Lib_MCU\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fmerge-constants -fmacro-prefix-map="../src/"=. -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -fstack-usage -MMD -MP -MF"src/memory.d" -MT"src/memory.o" -MT"src/memory.d" -o "src/memory.o" "../src/memory.c"
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__NEWLIB__ -I"C:\Users\student\Documents\f07\embedded-systems\Lib_CMSISv1p30_LPC17xx\inc" -I"C:\Users\student\Documents\f07\embedded-systems\Lib_MCU\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fmerge-constants -fmacro-prefix-map="../src/"=. -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -fstack-usage -MMD -MP -MF"src/mscuser.d" -MT"src/mscuser.o" -MT"src/mscuser.d" -o "src/mscuser.o" "../src/mscuser.c"
+Invoking: MCU C Compiler
+Building file: ../src/usbdesc.c
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__NEWLIB__ -I"C:\Users\student\Documents\f07\embedded-systems\Lib_CMSISv1p30_LPC17xx\inc" -I"C:\Users\student\Documents\f07\embedded-systems\Lib_MCU\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fmerge-constants -fmacro-prefix-map="../src/"=. -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -fstack-usage -MMD -MP -MF"src/usbcore.d" -MT"src/usbcore.o" -MT"src/usbcore.d" -o "src/usbcore.o" "../src/usbcore.c"
+Building file: ../src/usbhw.c
+Building file: ../src/usbuser.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__NEWLIB__ -I"C:\Users\student\Documents\f07\embedded-systems\Lib_CMSISv1p30_LPC17xx\inc" -I"C:\Users\student\Documents\f07\embedded-systems\Lib_MCU\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fmerge-constants -fmacro-prefix-map="../src/"=. -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -fstack-usage -MMD -MP -MF"src/usbdesc.d" -MT"src/usbdesc.o" -MT"src/usbdesc.d" -o "src/usbdesc.o" "../src/usbdesc.c"
+Invoking: MCU C Compiler
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__NEWLIB__ -I"C:\Users\student\Documents\f07\embedded-systems\Lib_CMSISv1p30_LPC17xx\inc" -I"C:\Users\student\Documents\f07\embedded-systems\Lib_MCU\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fmerge-constants -fmacro-prefix-map="../src/"=. -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -fstack-usage -MMD -MP -MF"src/usbhw.d" -MT"src/usbhw.o" -MT"src/usbhw.d" -o "src/usbhw.o" "../src/usbhw.c"
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__NEWLIB__ -I"C:\Users\student\Documents\f07\embedded-systems\Lib_CMSISv1p30_LPC17xx\inc" -I"C:\Users\student\Documents\f07\embedded-systems\Lib_MCU\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fmerge-constants -fmacro-prefix-map="../src/"=. -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -fstack-usage -MMD -MP -MF"src/usbuser.d" -MT"src/usbuser.o" -MT"src/usbuser.d" -o "src/usbuser.o" "../src/usbuser.c"
+../src/usbcore.c:58: warning: ignoring #pragma diag_suppress  [-Wunknown-pragmas]
+   58 | #pragma diag_suppress 111,1441
+      | 
+../src/usbcore.c: In function 'USB_GetStatus':
+../src/usbcore.c:181:9: warning: 'packed' attribute ignored for type 'uint16_t *' {aka 'short unsigned int *'} [-Wattributes]
+  181 |         *((__packed uint16_t *)EP0Buf) = 0;
+      |         ^
+../src/usbcore.c:192:9: warning: 'packed' attribute ignored for type 'uint16_t *' {aka 'short unsigned int *'} [-Wattributes]
+  192 |         *((__packed uint16_t *)EP0Buf) = (USB_EndPointHalt & m) ? 1 : 0;
+      |         ^
+Finished building: ../src/DiskImg.c
+In file included from ../src/usbdesc.c:24:
+../src/usbdesc.h:21:21: warning: suggest parentheses around '+' in operand of '&' [-Wparentheses]
+   21 | #define WBVAL(x) (x & 0xFF),((x >> 8) & 0xFF)
+      |                     ^
+../src/usbdesc.c:51:3: note: in expansion of macro 'WBVAL'
+   51 |   WBVAL(                             /* wTotalLength */
+      |   ^~~~~
+../src/usbdesc.h:21:33: warning: suggest parentheses around '+' inside '>>' [-Wparentheses]
+   21 | #define WBVAL(x) (x & 0xFF),((x >> 8) & 0xFF)
+      |                                 ^~
+../src/usbdesc.c:51:3: note: in expansion of macro 'WBVAL'
+   51 |   WBVAL(                             /* wTotalLength */
+      |   ^~~~~
+Finished building: ../src/cr_startup_lpc17.c
+../src/usbhw.c:31: warning: ignoring #pragma diag_suppress  [-Wunknown-pragmas]
+ 
+   31 | #pragma diag_suppress 1441
+      | 
+../src/usbhw.c: In function 'USB_ReadEP':
+../src/usbhw.c:413:5: warning: 'packed' attribute ignored for type 'uint32_t *' {aka 'long unsigned int *'} [-Wattributes]
+  413 |     *((__packed uint32_t *)pData) = LPC_USB->USBRxData;
+      |     ^
+../src/usbhw.c: In function 'USB_WriteEP':
+../src/usbhw.c:444:4: warning: 'packed' attribute ignored for type 'uint32_t *' {aka 'long unsigned int *'} [-Wattributes]
+  444 |    LPC_USB->USBTxData = *((__packed uint32_t *)pData);
+      |    ^~~~~~~
+ 
+Finished building: ../src/memory.c
+ 
+Finished building: ../src/usbdesc.c
+Finished building: ../src/usbcore.c
+ 
+Finished building: ../src/mscuser.c
+ 
+Finished building: ../src/usbuser.c
+ 
+ 
+Finished building: ../src/usbhw.c
+ 
+Building target: usbmem.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\student\Documents\f07\embedded-systems\Lib_CMSISv1p30_LPC17xx\Debug" -L"C:\Users\student\Documents\f07\embedded-systems\Lib_MCU\Debug" -Xlinker --gc-sections -Xlinker -Map=usbmem.map -mcpu=cortex-m3 -mthumb -T "rdb1768cmsis_uart_Debug.ld" -o "usbmem.axf"  ./src/DiskImg.o ./src/cr_startup_lpc17.o ./src/memory.o ./src/mscuser.o ./src/usbcore.o ./src/usbdesc.o ./src/usbhw.o ./src/usbuser.o   -lCMSISv1p30_LPC17xx -lLib_MCU
+c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/bin/ld.exe: ./src/usbcore.o: in function `USB_EndPoint0':
+C:\Users\student\Documents\f07\embedded-systems\usbmem\Debug/../src/usbcore.c:523: undefined reference to `USB_GetStatus'
+c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/bin/ld.exe: C:\Users\student\Documents\f07\embedded-systems\usbmem\Debug/../src/usbcore.c:529: undefined reference to `USB_SetClrFeature'
+c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/bin/ld.exe: C:\Users\student\Documents\f07\embedded-systems\usbmem\Debug/../src/usbcore.c:539: undefined reference to `USB_SetClrFeature'
+c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/bin/ld.exe: C:\Users\student\Documents\f07\embedded-systems\usbmem\Debug/../src/usbcore.c:560: undefined reference to `USB_GetDescriptor'
+c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/bin/ld.exe: C:\Users\student\Documents\f07\embedded-systems\usbmem\Debug/../src/usbcore.c:584: undefined reference to `USB_SetConfiguration'
+c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/bin/ld.exe: C:\Users\student\Documents\f07\embedded-systems\usbmem\Debug/../src/usbcore.c:616: undefined reference to `USB_SetInterface'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:32: usbmem.axf] Error 1
+"make -r -j16 all" terminated with exit code 2. Build might be incomplete.
+
+10:00:19 Build Failed. 8 errors, 8 warnings. (took 501ms)
+

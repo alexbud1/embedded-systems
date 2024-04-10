@@ -1,0 +1,26 @@
+10:00:19 **** Build of configuration Debug for project xbee_oled ****
+make -r -j16 all 
+Building file: ../src/cr_startup_lpc17.c
+Building file: ../src/main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__NEWLIB__ -I"C:\Users\student\Documents\f07\embedded-systems\Lib_CMSISv1p30_LPC17xx\inc" -I"C:\Users\student\Documents\f07\embedded-systems\Lib_EaBaseBoard\inc" -I"C:\Users\student\Documents\f07\embedded-systems\Lib_MCU\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fmerge-constants -fmacro-prefix-map="../src/"=. -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -fstack-usage -MMD -MP -MF"src/cr_startup_lpc17.d" -MT"src/cr_startup_lpc17.o" -MT"src/cr_startup_lpc17.d" -o "src/cr_startup_lpc17.o" "../src/cr_startup_lpc17.c"
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__NEWLIB__ -I"C:\Users\student\Documents\f07\embedded-systems\Lib_CMSISv1p30_LPC17xx\inc" -I"C:\Users\student\Documents\f07\embedded-systems\Lib_EaBaseBoard\inc" -I"C:\Users\student\Documents\f07\embedded-systems\Lib_MCU\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fmerge-constants -fmacro-prefix-map="../src/"=. -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -fstack-usage -MMD -MP -MF"src/main.d" -MT"src/main.o" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/cr_startup_lpc17.c
+ 
+Finished building: ../src/main.c
+ 
+Building target: xbee_oled.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\student\Documents\f07\embedded-systems\Lib_CMSISv1p30_LPC17xx\Debug" -L"C:\Users\student\Documents\f07\embedded-systems\Lib_EaBaseBoard\Debug" -L"C:\Users\student\Documents\f07\embedded-systems\Lib_MCU\Debug" -Xlinker --gc-sections -Xlinker -Map=xbee_oled.map -mcpu=cortex-m3 -mthumb -T "rdb1768cmsis_uart_Debug.ld" -o "xbee_oled.axf"  ./src/cr_startup_lpc17.o ./src/main.o   -lCMSISv1p30_LPC17xx -lLib_EaBaseBoard -lLib_MCU
+Finished building target: xbee_oled.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size xbee_oled.axf; # arm-none-eabi-objdump -h -S xbee_oled.axf >xbee_oled.lss
+   text	   data	    bss	    dec	    hex	filename
+  11076	      4	    768	  11848	   2e48	xbee_oled.axf
+ 
+
+10:00:20 Build Finished. 0 errors, 0 warnings. (took 401ms)
+

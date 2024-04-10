@@ -1,0 +1,26 @@
+10:00:13 **** Build of configuration Debug for project i2c_eeprom ****
+make -r -j16 all 
+Building file: ../src/cr_startup_lpc17.c
+Building file: ../src/main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__NEWLIB__ -I"C:\Users\student\Documents\f07\embedded-systems\Lib_CMSISv1p30_LPC17xx\inc" -I"C:\Users\student\Documents\f07\embedded-systems\Lib_EaBaseBoard\inc" -I"C:\Users\student\Documents\f07\embedded-systems\Lib_MCU\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fmerge-constants -fmacro-prefix-map="../src/"=. -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -fstack-usage -MMD -MP -MF"src/cr_startup_lpc17.d" -MT"src/cr_startup_lpc17.o" -MT"src/cr_startup_lpc17.d" -o "src/cr_startup_lpc17.o" "../src/cr_startup_lpc17.c"
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__NEWLIB__ -I"C:\Users\student\Documents\f07\embedded-systems\Lib_CMSISv1p30_LPC17xx\inc" -I"C:\Users\student\Documents\f07\embedded-systems\Lib_EaBaseBoard\inc" -I"C:\Users\student\Documents\f07\embedded-systems\Lib_MCU\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fmerge-constants -fmacro-prefix-map="../src/"=. -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -fstack-usage -MMD -MP -MF"src/main.d" -MT"src/main.o" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/cr_startup_lpc17.c
+ 
+Finished building: ../src/main.c
+ 
+Building target: i2c_eeprom.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\student\Documents\f07\embedded-systems\Lib_CMSISv1p30_LPC17xx\Debug" -L"C:\Users\student\Documents\f07\embedded-systems\Lib_EaBaseBoard\Debug" -L"C:\Users\student\Documents\f07\embedded-systems\Lib_MCU\Debug" -Xlinker --gc-sections -Xlinker -Map=i2c_eeprom.map -mcpu=cortex-m3 -mthumb -T "rdb1768cmsis_uart_Debug.ld" -o "i2c_eeprom.axf"  ./src/cr_startup_lpc17.o ./src/main.o   -lCMSISv1p30_LPC17xx -lLib_EaBaseBoard -lLib_MCU
+Finished building target: i2c_eeprom.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size i2c_eeprom.axf; # arm-none-eabi-objdump -h -S i2c_eeprom.axf >i2c_eeprom.lss
+   text	   data	    bss	    dec	    hex	filename
+   9444	      4	     52	   9500	   251c	i2c_eeprom.axf
+ 
+
+10:00:14 Build Finished. 0 errors, 0 warnings. (took 398ms)
+

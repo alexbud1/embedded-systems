@@ -1,0 +1,40 @@
+10:00:13 **** Build of configuration Debug for project emb ****
+make -r -j16 all 
+Building file: ../src/cr_cpp_config.cpp
+Building file: ../src/cr_startup_lpc175x_6x.cpp
+Building file: ../src/crp.c
+Building file: ../src/emb.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -DDEBUG -D__CODE_RED -D__NEWLIB__ -DCORE_M3 -DCPP_USE_HEAP -D__LPC17XX__ -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fmerge-constants -fmacro-prefix-map="../src/"=. -mcpu=cortex-m3 -mthumb -fstack-usage -MMD -MP -MF"src/cr_cpp_config.d" -MT"src/cr_cpp_config.o" -MT"src/cr_cpp_config.d" -o "src/cr_cpp_config.o" "../src/cr_cpp_config.cpp"
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -DDEBUG -D__CODE_RED -D__NEWLIB__ -DCORE_M3 -DCPP_USE_HEAP -D__LPC17XX__ -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fmerge-constants -fmacro-prefix-map="../src/"=. -mcpu=cortex-m3 -mthumb -fstack-usage -MMD -MP -MF"src/cr_startup_lpc175x_6x.d" -MT"src/cr_startup_lpc175x_6x.o" -MT"src/cr_startup_lpc175x_6x.d" -o "src/cr_startup_lpc175x_6x.o" "../src/cr_startup_lpc175x_6x.cpp"
+Invoking: MCU C Compiler
+Invoking: MCU C++ Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -D__NEWLIB__ -DCORE_M3 -DCPP_USE_HEAP -D__LPC17XX__ -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fmerge-constants -fmacro-prefix-map="../src/"=. -mcpu=cortex-m3 -mthumb -fstack-usage -MMD -MP -MF"src/crp.d" -MT"src/crp.o" -MT"src/crp.d" -o "src/crp.o" "../src/crp.c"
+arm-none-eabi-c++ -DDEBUG -D__CODE_RED -D__NEWLIB__ -DCORE_M3 -DCPP_USE_HEAP -D__LPC17XX__ -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fmerge-constants -fmacro-prefix-map="../src/"=. -mcpu=cortex-m3 -mthumb -fstack-usage -MMD -MP -MF"src/emb.d" -MT"src/emb.o" -MT"src/emb.d" -o "src/emb.o" "../src/emb.cpp"
+Finished building: ../src/crp.c
+Finished building: ../src/emb.cpp
+Finished building: ../src/cr_startup_lpc175x_6x.cpp
+ 
+ 
+Finished building: ../src/cr_cpp_config.cpp
+ 
+ 
+Building target: emb.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -Xlinker -Map="emb.map" -Xlinker --cref -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "emb_Debug.ld" -o "emb.axf"  ./src/cr_cpp_config.o ./src/cr_startup_lpc175x_6x.o ./src/crp.o ./src/emb.o   
+Memory region         Used Size  Region Size  %age Used
+       MFlash512:         956 B       512 KB      0.18%
+        RamLoc32:          32 B        32 KB      0.10%
+        RamAHB32:          0 GB        32 KB      0.00%
+Finished building target: emb.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "emb.axf"; # arm-none-eabi-objcopy -v -O binary "emb.axf" "emb.bin" ; # checksum -p LPC1769 -d "emb.bin";
+   text	   data	    bss	    dec	    hex	filename
+    956	      0	     32	    988	    3dc	emb.axf
+ 
+
+10:00:13 Build Finished. 0 errors, 0 warnings. (took 448ms)
+

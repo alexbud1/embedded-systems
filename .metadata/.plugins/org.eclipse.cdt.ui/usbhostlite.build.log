@@ -1,0 +1,550 @@
+10:00:18 **** Build of configuration Debug for project usbhostlite ****
+make -r -j16 all 
+Building file: ../src/Uart/usbhost_uart.c
+Building file: ../src/MassStorage/usbhost_ms.c
+Building file: ../src/Main/usbhost_main.c
+Building file: ../src/Host/usbhost_lpc17xx.c
+Invoking: MCU C Compiler
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__NEWLIB__ -I"C:\Users\student\Documents\f07\embedded-systems\Lib_CMSISv1p30_LPC17xx\inc" -I"C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include" -I"C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fmerge-constants -fmacro-prefix-map="../src/Uart/"=. -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -fstack-usage -MMD -MP -MF"src/Uart/usbhost_uart.d" -MT"src/Uart/usbhost_uart.o" -MT"src/Uart/usbhost_uart.d" -o "src/Uart/usbhost_uart.o" "../src/Uart/usbhost_uart.c"
+Invoking: MCU C Compiler
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__NEWLIB__ -I"C:\Users\student\Documents\f07\embedded-systems\Lib_CMSISv1p30_LPC17xx\inc" -I"C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include" -I"C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fmerge-constants -fmacro-prefix-map="../src/MassStorage/"=. -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -fstack-usage -MMD -MP -MF"src/MassStorage/usbhost_ms.d" -MT"src/MassStorage/usbhost_ms.o" -MT"src/MassStorage/usbhost_ms.d" -o "src/MassStorage/usbhost_ms.o" "../src/MassStorage/usbhost_ms.c"
+Building file: ../src/Fat/usbhost_fat.c
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__NEWLIB__ -I"C:\Users\student\Documents\f07\embedded-systems\Lib_CMSISv1p30_LPC17xx\inc" -I"C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include" -I"C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fmerge-constants -fmacro-prefix-map="../src/Main/"=. -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -fstack-usage -MMD -MP -MF"src/Main/usbhost_main.d" -MT"src/Main/usbhost_main.o" -MT"src/Main/usbhost_main.d" -o "src/Main/usbhost_main.o" "../src/Main/usbhost_main.c"
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__NEWLIB__ -I"C:\Users\student\Documents\f07\embedded-systems\Lib_CMSISv1p30_LPC17xx\inc" -I"C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include" -I"C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fmerge-constants -fmacro-prefix-map="../src/Host/"=. -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -fstack-usage -MMD -MP -MF"src/Host/usbhost_lpc17xx.d" -MT"src/Host/usbhost_lpc17xx.o" -MT"src/Host/usbhost_lpc17xx.d" -o "src/Host/usbhost_lpc17xx.o" "../src/Host/usbhost_lpc17xx.c"
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__NEWLIB__ -I"C:\Users\student\Documents\f07\embedded-systems\Lib_CMSISv1p30_LPC17xx\inc" -I"C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include" -I"C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fmerge-constants -fmacro-prefix-map="../src/Fat/"=. -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -fstack-usage -MMD -MP -MF"src/Fat/usbhost_fat.d" -MT"src/Fat/usbhost_fat.o" -MT"src/Fat/usbhost_fat.d" -o "src/Fat/usbhost_fat.o" "../src/Fat/usbhost_fat.c"
+Building file: ../src/cr_startup_lpc17.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__NEWLIB__ -I"C:\Users\student\Documents\f07\embedded-systems\Lib_CMSISv1p30_LPC17xx\inc" -I"C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include" -I"C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fmerge-constants -fmacro-prefix-map="../src/"=. -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -fstack-usage -MMD -MP -MF"src/cr_startup_lpc17.d" -MT"src/cr_startup_lpc17.o" -MT"src/cr_startup_lpc17.d" -o "src/cr_startup_lpc17.o" "../src/cr_startup_lpc17.c"
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:31,
+                 from ../src/MassStorage/usbhost_ms.h:28,
+                 from ../src/MassStorage/usbhost_ms.c:25:
+../src/MassStorage/usbhost_ms.c: In function 'MS_Init':
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Host/usbhost_lpc17xx.h:40:43: warning: pointer targets in passing argument 1 of 'UART_Printf' differ in signedness [-Wpointer-sign]
+   40 | #define  PRINT_Err(rc)        UART_Printf("ERROR: In %s at Line %u - rc = %d\n", __FUNCTION__, __LINE__, rc)
+      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                           |
+      |                                           char *
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Host/usbhost_lpc17xx.h:40:43: note: in definition of macro 'PRINT_Err'
+   40 | #define  PRINT_Err(rc)        UART_Printf("ERROR: In %s at Line %u - rc = %d\n", __FUNCTION__, __LINE__, rc)
+      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:30,
+                 from ../src/MassStorage/usbhost_ms.h:28,
+                 from ../src/MassStorage/usbhost_ms.c:25:
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Uart/usbhost_uart.h:49:38: note: expected 'const USB_INT08U *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void  UART_Printf(const USB_INT08U  *format, ...);
+      |                   ~~~~~~~~~~~~~~~~~~~^~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:31,
+                 from ../src/MassStorage/usbhost_ms.h:28,
+                 from ../src/MassStorage/usbhost_ms.c:25:
+../src/MassStorage/usbhost_ms.c: In function 'MS_ParseConfiguration':
+../src/MassStorage/usbhost_ms.c:141:19: warning: pointer targets in passing argument 1 of 'UART_Printf' differ in signedness [-Wpointer-sign]
+  141 |         PRINT_Log("Mass Storage device connected\n");
+      |                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                   |
+      |                   char *
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Host/usbhost_lpc17xx.h:39:43: note: in definition of macro 'PRINT_Log'
+   39 | #define  PRINT_Log(...)       UART_Printf(__VA_ARGS__)
+      |                                           ^~~~~~~~~~~
+In file included from ../src/Main/usbhost_main.c:25:
+../src/Main/usbhost_main.c: In function 'Main_Read':
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:30,
+                 from ../src/MassStorage/usbhost_ms.h:28,
+                 from ../src/MassStorage/usbhost_ms.c:25:
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Uart/usbhost_uart.h:49:38: note: expected 'const USB_INT08U *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void  UART_Printf(const USB_INT08U  *format, ...);
+      |                   ~~~~~~~~~~~~~~~~~~~^~~~~~
+../src/Main/usbhost_main.h:36:22: warning: pointer targets in passing argument 1 of 'FILE_Open' differ in signedness [-Wpointer-sign]
+   36 | #define  FILENAME_R  "MSREAD.TXT"
+      |                      ^~~~~~~~~~~~
+      |                      |
+      |                      char *
+../src/Main/usbhost_main.c:98:21: note: in expansion of macro 'FILENAME_R'
+   98 |     fdr = FILE_Open(FILENAME_R, RDONLY);
+      |                     ^~~~~~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:31,
+                 from ../src/MassStorage/usbhost_ms.h:28,
+                 from ../src/MassStorage/usbhost_ms.c:25:
+../src/MassStorage/usbhost_ms.c:144:19: warning: pointer targets in passing argument 1 of 'UART_Printf' differ in signedness [-Wpointer-sign]
+  144 |         PRINT_Log("Not a Mass Storage device\n");
+      |                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                   |
+      |                   char *
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Host/usbhost_lpc17xx.h:39:43: note: in definition of macro 'PRINT_Log'
+   39 | #define  PRINT_Log(...)       UART_Printf(__VA_ARGS__)
+      |                                           ^~~~~~~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:33,
+                 from ../src/Main/usbhost_main.h:28,
+                 from ../src/Main/usbhost_main.c:25:
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Fat/usbhost_fat.h:89:53: note: expected 'USB_INT08U *' {aka 'unsigned char *'} but argument is of type 'char *'
+   89 | USB_INT32S  FILE_Open       (          USB_INT08U  *file_name,
+      |                                        ~~~~~~~~~~~~~^~~~~~~~~
+In file included from ../src/Host/usbhost_lpc17xx.c:25:
+../src/Host/usbhost_lpc17xx.c: In function 'Host_Init':
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:30,
+                 from ../src/MassStorage/usbhost_ms.h:28,
+                 from ../src/MassStorage/usbhost_ms.c:25:
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Uart/usbhost_uart.h:49:38: note: expected 'const USB_INT08U *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void  UART_Printf(const USB_INT08U  *format, ...);
+      |                   ~~~~~~~~~~~~~~~~~~~^~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:31,
+                 from ../src/Main/usbhost_main.h:28,
+                 from ../src/Main/usbhost_main.c:25:
+../src/Main/usbhost_main.c:100:19: warning: pointer targets in passing argument 1 of 'UART_Printf' differ in signedness [-Wpointer-sign]
+  100 |         PRINT_Log("Reading from %s...\n", FILENAME_R);
+      |                   ^~~~~~~~~~~~~~~~~~~~~~
+      |                   |
+      |                   char *
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Host/usbhost_lpc17xx.h:39:43: note: in definition of macro 'PRINT_Log'
+   39 | #define  PRINT_Log(...)       UART_Printf(__VA_ARGS__)
+      |                                           ^~~~~~~~~~~
+../src/Host/usbhost_lpc17xx.c:130:12: warning: pointer targets in passing argument 1 of 'UART_Printf' differ in signedness [-Wpointer-sign]
+  130 |  PRINT_Log("Initializing Host Stack\n");
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |            |
+      |            char *
+../src/Host/usbhost_lpc17xx.h:39:43: note: in definition of macro 'PRINT_Log'
+   39 | #define  PRINT_Log(...)       UART_Printf(__VA_ARGS__)
+      |                                           ^~~~~~~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:30,
+                 from ../src/Main/usbhost_main.h:28,
+                 from ../src/Main/usbhost_main.c:25:
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Uart/usbhost_uart.h:49:38: note: expected 'const USB_INT08U *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void  UART_Printf(const USB_INT08U  *format, ...);
+      |                   ~~~~~~~~~~~~~~~~~~~^~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:30,
+                 from ../src/Host/usbhost_lpc17xx.h:28,
+                 from ../src/Host/usbhost_lpc17xx.c:25:
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Uart/usbhost_uart.h:49:38: note: expected 'const USB_INT08U *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void  UART_Printf(const USB_INT08U  *format, ...);
+      |                   ~~~~~~~~~~~~~~~~~~~^~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:31,
+                 from ../src/Main/usbhost_main.h:28,
+                 from ../src/Main/usbhost_main.c:25:
+../src/Main/usbhost_main.c:106:19: warning: pointer targets in passing argument 1 of 'UART_Printf' differ in signedness [-Wpointer-sign]
+  106 |         PRINT_Log("Read Complete\n");
+      |                   ^~~~~~~~~~~~~~~~~
+      |                   |
+      |                   char *
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Host/usbhost_lpc17xx.h:39:43: note: in definition of macro 'PRINT_Log'
+   39 | #define  PRINT_Log(...)       UART_Printf(__VA_ARGS__)
+      |                                           ^~~~~~~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:31,
+                 from ../src/Fat/usbhost_fat.h:28,
+                 from ../src/Fat/usbhost_fat.c:25:
+../src/Fat/usbhost_fat.c: In function 'FAT_Init':
+In file included from ../src/Host/usbhost_lpc17xx.c:25:
+../src/Host/usbhost_lpc17xx.c:182:15: warning: pointer targets in passing argument 1 of 'UART_Printf' differ in signedness [-Wpointer-sign]
+  182 |     PRINT_Log("Host Initialized\n");
+      |               ^~~~~~~~~~~~~~~~~~~~
+      |               |
+      |               char *
+../src/Host/usbhost_lpc17xx.h:39:43: note: in definition of macro 'PRINT_Log'
+   39 | #define  PRINT_Log(...)       UART_Printf(__VA_ARGS__)
+      |                                           ^~~~~~~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:30,
+                 from ../src/Main/usbhost_main.h:28,
+                 from ../src/Main/usbhost_main.c:25:
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Uart/usbhost_uart.h:49:38: note: expected 'const USB_INT08U *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void  UART_Printf(const USB_INT08U  *format, ...);
+      |                   ~~~~~~~~~~~~~~~~~~~^~~~~~
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Host/usbhost_lpc17xx.h:40:43: warning: pointer targets in passing argument 1 of 'UART_Printf' differ in signedness [-Wpointer-sign]
+   40 | #define  PRINT_Err(rc)        UART_Printf("ERROR: In %s at Line %u - rc = %d\n", __FUNCTION__, __LINE__, rc)
+      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                           |
+      |                                           char *
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Host/usbhost_lpc17xx.h:40:43: note: in definition of macro 'PRINT_Err'
+   40 | #define  PRINT_Err(rc)        UART_Printf("ERROR: In %s at Line %u - rc = %d\n", __FUNCTION__, __LINE__, rc)
+      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:30,
+                 from ../src/Host/usbhost_lpc17xx.h:28,
+                 from ../src/Host/usbhost_lpc17xx.c:25:
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Uart/usbhost_uart.h:49:38: note: expected 'const USB_INT08U *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void  UART_Printf(const USB_INT08U  *format, ...);
+      |                   ~~~~~~~~~~~~~~~~~~~^~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:31,
+                 from ../src/Main/usbhost_main.h:28,
+                 from ../src/Main/usbhost_main.c:25:
+../src/Main/usbhost_main.c:108:19: warning: pointer targets in passing argument 1 of 'UART_Printf' differ in signedness [-Wpointer-sign]
+  108 |         PRINT_Log("Could not open file %s\n", FILENAME_R);
+      |                   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                   |
+      |                   char *
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Host/usbhost_lpc17xx.h:39:43: note: in definition of macro 'PRINT_Log'
+   39 | #define  PRINT_Log(...)       UART_Printf(__VA_ARGS__)
+      |                                           ^~~~~~~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:30,
+                 from ../src/Fat/usbhost_fat.h:28,
+                 from ../src/Fat/usbhost_fat.c:25:
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Uart/usbhost_uart.h:49:38: note: expected 'const USB_INT08U *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void  UART_Printf(const USB_INT08U  *format, ...);
+      |                   ~~~~~~~~~~~~~~~~~~~^~~~~~
+In file included from ../src/Host/usbhost_lpc17xx.c:25:
+../src/Host/usbhost_lpc17xx.c: In function 'USB_IRQHandler':
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:30,
+                 from ../src/Main/usbhost_main.h:28,
+                 from ../src/Main/usbhost_main.c:25:
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Uart/usbhost_uart.h:49:38: note: expected 'const USB_INT08U *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void  UART_Printf(const USB_INT08U  *format, ...);
+      |                   ~~~~~~~~~~~~~~~~~~~^~~~~~
+../src/Host/usbhost_lpc17xx.c:233:18: warning: pointer targets in passing argument 1 of 'UART_Printf' differ in signedness [-Wpointer-sign]
+  233 |        PRINT_Log("Spurious status change (connected)?\n");
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                  |
+      |                  char *
+../src/Host/usbhost_lpc17xx.h:39:43: note: in definition of macro 'PRINT_Log'
+   39 | #define  PRINT_Log(...)       UART_Printf(__VA_ARGS__)
+      |                                           ^~~~~~~~~~~
+In file included from ../src/Main/usbhost_main.c:25:
+../src/Main/usbhost_main.c: In function 'Main_Write':
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:30,
+                 from ../src/Host/usbhost_lpc17xx.h:28,
+                 from ../src/Host/usbhost_lpc17xx.c:25:
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Uart/usbhost_uart.h:49:38: note: expected 'const USB_INT08U *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void  UART_Printf(const USB_INT08U  *format, ...);
+      |                   ~~~~~~~~~~~~~~~~~~~^~~~~~
+../src/Main/usbhost_main.h:36:22: warning: pointer targets in passing argument 1 of 'FILE_Open' differ in signedness [-Wpointer-sign]
+   36 | #define  FILENAME_R  "MSREAD.TXT"
+      |                      ^~~~~~~~~~~~
+      |                      |
+      |                      char *
+../src/Main/usbhost_main.c:134:21: note: in expansion of macro 'FILENAME_R'
+  134 |     fdr = FILE_Open(FILENAME_R, RDONLY);
+      |                     ^~~~~~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:33,
+                 from ../src/Main/usbhost_main.h:28,
+                 from ../src/Main/usbhost_main.c:25:
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Fat/usbhost_fat.h:89:53: note: expected 'USB_INT08U *' {aka 'unsigned char *'} but argument is of type 'char *'
+   89 | USB_INT32S  FILE_Open       (          USB_INT08U  *file_name,
+      |                                        ~~~~~~~~~~~~~^~~~~~~~~
+In file included from ../src/Host/usbhost_lpc17xx.c:25:
+../src/Host/usbhost_lpc17xx.c:241:18: warning: pointer targets in passing argument 1 of 'UART_Printf' differ in signedness [-Wpointer-sign]
+  241 |        PRINT_Log("Spurious status change (disconnected)?\n");
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                  |
+      |                  char *
+../src/Host/usbhost_lpc17xx.h:39:43: note: in definition of macro 'PRINT_Log'
+   39 | #define  PRINT_Log(...)       UART_Printf(__VA_ARGS__)
+      |                                           ^~~~~~~~~~~
+In file included from ../src/Main/usbhost_main.c:25:
+../src/Main/usbhost_main.h:37:22: warning: pointer targets in passing argument 1 of 'FILE_Open' differ in signedness [-Wpointer-sign]
+   37 | #define  FILENAME_W  "MSWRITE.TXT"
+      |                      ^~~~~~~~~~~~~
+      |                      |
+      |                      char *
+../src/Main/usbhost_main.c:137:25: note: in expansion of macro 'FILENAME_W'
+  137 |         fdw = FILE_Open(FILENAME_W, RDWR);
+      |                         ^~~~~~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:30,
+                 from ../src/Host/usbhost_lpc17xx.h:28,
+                 from ../src/Host/usbhost_lpc17xx.c:25:
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Uart/usbhost_uart.h:49:38: note: expected 'const USB_INT08U *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void  UART_Printf(const USB_INT08U  *format, ...);
+      |                   ~~~~~~~~~~~~~~~~~~~^~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:33,
+                 from ../src/Main/usbhost_main.h:28,
+                 from ../src/Main/usbhost_main.c:25:
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Fat/usbhost_fat.h:89:53: note: expected 'USB_INT08U *' {aka 'unsigned char *'} but argument is of type 'char *'
+   89 | USB_INT32S  FILE_Open       (          USB_INT08U  *file_name,
+      |                                        ~~~~~~~~~~~~~^~~~~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:31,
+                 from ../src/Main/usbhost_main.h:28,
+                 from ../src/Main/usbhost_main.c:25:
+../src/Main/usbhost_main.c:140:23: warning: pointer targets in passing argument 1 of 'UART_Printf' differ in signedness [-Wpointer-sign]
+  140 |             PRINT_Log("Writing to %s...\n", FILENAME_W);
+      |                       ^~~~~~~~~~~~~~~~~~~~
+      |                       |
+      |                       char *
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Host/usbhost_lpc17xx.h:39:43: note: in definition of macro 'PRINT_Log'
+   39 | #define  PRINT_Log(...)       UART_Printf(__VA_ARGS__)
+      |                                           ^~~~~~~~~~~
+In file included from ../src/Host/usbhost_lpc17xx.c:25:
+../src/Host/usbhost_lpc17xx.c: In function 'Host_EnumDev':
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:30,
+                 from ../src/Main/usbhost_main.h:28,
+                 from ../src/Main/usbhost_main.c:25:
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Uart/usbhost_uart.h:49:38: note: expected 'const USB_INT08U *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void  UART_Printf(const USB_INT08U  *format, ...);
+      |                   ~~~~~~~~~~~~~~~~~~~^~~~~~
+../src/Host/usbhost_lpc17xx.c:347:15: warning: pointer targets in passing argument 1 of 'UART_Printf' differ in signedness [-Wpointer-sign]
+  347 |     PRINT_Log("Connect a Mass Storage device\n");
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |               |
+      |               char *
+../src/Host/usbhost_lpc17xx.h:39:43: note: in definition of macro 'PRINT_Log'
+   39 | #define  PRINT_Log(...)       UART_Printf(__VA_ARGS__)
+      |                                           ^~~~~~~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:30,
+                 from ../src/Host/usbhost_lpc17xx.h:28,
+                 from ../src/Host/usbhost_lpc17xx.c:25:
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Uart/usbhost_uart.h:49:38: note: expected 'const USB_INT08U *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void  UART_Printf(const USB_INT08U  *format, ...);
+      |                   ~~~~~~~~~~~~~~~~~~~^~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:31,
+                 from ../src/Main/usbhost_main.h:28,
+                 from ../src/Main/usbhost_main.c:25:
+../src/Main/usbhost_main.c:146:23: warning: pointer targets in passing argument 1 of 'UART_Printf' differ in signedness [-Wpointer-sign]
+  146 |             PRINT_Log("Write completed\n");
+      |                       ^~~~~~~~~~~~~~~~~~~
+      |                       |
+      |                       char *
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Host/usbhost_lpc17xx.h:39:43: note: in definition of macro 'PRINT_Log'
+   39 | #define  PRINT_Log(...)       UART_Printf(__VA_ARGS__)
+      |                                           ^~~~~~~~~~~
+In file included from ../src/Host/usbhost_lpc17xx.c:25:
+../src/Host/usbhost_lpc17xx.h:40:43: warning: pointer targets in passing argument 1 of 'UART_Printf' differ in signedness [-Wpointer-sign]
+   40 | #define  PRINT_Err(rc)        UART_Printf("ERROR: In %s at Line %u - rc = %d\n", __FUNCTION__, __LINE__, rc)
+Finished building: ../src/Uart/usbhost_uart.c
+      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                           |
+      |                                           char *
+../src/Host/usbhost_lpc17xx.h:40:43: note: in definition of macro 'PRINT_Err'
+   40 | #define  PRINT_Err(rc)        UART_Printf("ERROR: In %s at Line %u - rc = %d\n", __FUNCTION__, __LINE__, rc)
+      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:30,
+                 from ../src/Main/usbhost_main.h:28,
+                 from ../src/Main/usbhost_main.c:25:
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Uart/usbhost_uart.h:49:38: note: expected 'const USB_INT08U *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void  UART_Printf(const USB_INT08U  *format, ...);
+      |                   ~~~~~~~~~~~~~~~~~~~^~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:30,
+                 from ../src/Host/usbhost_lpc17xx.h:28,
+                 from ../src/Host/usbhost_lpc17xx.c:25:
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Uart/usbhost_uart.h:49:38: note: expected 'const USB_INT08U *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void  UART_Printf(const USB_INT08U  *format, ...);
+      |                   ~~~~~~~~~~~~~~~~~~~^~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:31,
+                 from ../src/Main/usbhost_main.h:28,
+                 from ../src/Main/usbhost_main.c:25:
+../src/Main/usbhost_main.c:148:23: warning: pointer targets in passing argument 1 of 'UART_Printf' differ in signedness [-Wpointer-sign]
+  148 |             PRINT_Log("Could not open file %s\n", FILENAME_W);
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                       |
+      |                       char *
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Host/usbhost_lpc17xx.h:39:43: note: in definition of macro 'PRINT_Log'
+   39 | #define  PRINT_Log(...)       UART_Printf(__VA_ARGS__)
+      |                                           ^~~~~~~~~~~
+In file included from ../src/Host/usbhost_lpc17xx.c:25:
+../src/Host/usbhost_lpc17xx.h:40:43: warning: pointer targets in passing argument 1 of 'UART_Printf' differ in signedness [-Wpointer-sign]
+   40 | #define  PRINT_Err(rc)        UART_Printf("ERROR: In %s at Line %u - rc = %d\n", __FUNCTION__, __LINE__, rc)
+      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                           |
+      |                                           char *
+../src/Host/usbhost_lpc17xx.h:40:43: note: in definition of macro 'PRINT_Err'
+   40 | #define  PRINT_Err(rc)        UART_Printf("ERROR: In %s at Line %u - rc = %d\n", __FUNCTION__, __LINE__, rc)
+      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:30,
+                 from ../src/Main/usbhost_main.h:28,
+                 from ../src/Main/usbhost_main.c:25:
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Uart/usbhost_uart.h:49:38: note: expected 'const USB_INT08U *' {aka 'const unsigned char *'} but argument is of type 'char *'
+Finished building: ../src/cr_startup_lpc17.c
+   49 | void  UART_Printf(const USB_INT08U  *format, ...);
+      |                   ~~~~~~~~~~~~~~~~~~~^~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:30,
+                 from ../src/Host/usbhost_lpc17xx.h:28,
+                 from ../src/Host/usbhost_lpc17xx.c:25:
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Uart/usbhost_uart.h:49:38: note: expected 'const USB_INT08U *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void  UART_Printf(const USB_INT08U  *format, ...);
+      |                   ~~~~~~~~~~~~~~~~~~~^~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:31,
+                 from ../src/Main/usbhost_main.h:28,
+                 from ../src/Main/usbhost_main.c:25:
+../src/Main/usbhost_main.c:153:19: warning: pointer targets in passing argument 1 of 'UART_Printf' differ in signedness [-Wpointer-sign]
+  153 |         PRINT_Log("Could not open file %s\n", FILENAME_R);
+      |                   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                   |
+      |                   char *
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Host/usbhost_lpc17xx.h:39:43: note: in definition of macro 'PRINT_Log'
+   39 | #define  PRINT_Log(...)       UART_Printf(__VA_ARGS__)
+      |                                           ^~~~~~~~~~~
+In file included from ../src/Host/usbhost_lpc17xx.c:25:
+../src/Host/usbhost_lpc17xx.h:40:43: warning: pointer targets in passing argument 1 of 'UART_Printf' differ in signedness [-Wpointer-sign]
+   40 | #define  PRINT_Err(rc)        UART_Printf("ERROR: In %s at Line %u - rc = %d\n", __FUNCTION__, __LINE__, rc)
+ 
+      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                           |
+      |                                           char *
+../src/Host/usbhost_lpc17xx.h:40:43: note: in definition of macro 'PRINT_Err'
+   40 | #define  PRINT_Err(rc)        UART_Printf("ERROR: In %s at Line %u - rc = %d\n", __FUNCTION__, __LINE__, rc)
+      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:30,
+                 from ../src/Main/usbhost_main.h:28,
+                 from ../src/Main/usbhost_main.c:25:
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Uart/usbhost_uart.h:49:38: note: expected 'const USB_INT08U *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void  UART_Printf(const USB_INT08U  *format, ...);
+      |                   ~~~~~~~~~~~~~~~~~~~^~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:30,
+                 from ../src/Host/usbhost_lpc17xx.h:28,
+                 from ../src/Host/usbhost_lpc17xx.c:25:
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Uart/usbhost_uart.h:49:38: note: expected 'const USB_INT08U *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void  UART_Printf(const USB_INT08U  *format, ...);
+      |                   ~~~~~~~~~~~~~~~~~~~^~~~~~
+In file included from ../src/Main/usbhost_main.c:25:
+../src/Main/usbhost_main.c: In function 'Main_Copy':
+../src/Main/usbhost_main.h:36:22: warning: pointer targets in passing argument 1 of 'FILE_Open' differ in signedness [-Wpointer-sign]
+   36 | #define  FILENAME_R  "MSREAD.TXT"
+      |                      ^~~~~~~~~~~~
+      |                      |
+      |                      char *
+../src/Main/usbhost_main.c:178:21: note: in expansion of macro 'FILENAME_R'
+  178 |     fdr = FILE_Open(FILENAME_R, RDONLY);
+      |                     ^~~~~~~~~~
+In file included from ../src/Host/usbhost_lpc17xx.c:25:
+../src/Host/usbhost_lpc17xx.h:40:43: warning: pointer targets in passing argument 1 of 'UART_Printf' differ in signedness [-Wpointer-sign]
+   40 | #define  PRINT_Err(rc)        UART_Printf("ERROR: In %s at Line %u - rc = %d\n", __FUNCTION__, __LINE__, rc)
+      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                           |
+      |                                           char *
+../src/Host/usbhost_lpc17xx.h:40:43: note: in definition of macro 'PRINT_Err'
+   40 | #define  PRINT_Err(rc)        UART_Printf("ERROR: In %s at Line %u - rc = %d\n", __FUNCTION__, __LINE__, rc)
+ 
+      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:33,
+                 from ../src/Main/usbhost_main.h:28,
+                 from ../src/Main/usbhost_main.c:25:
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Fat/usbhost_fat.h:89:53: note: expected 'USB_INT08U *' {aka 'unsigned char *'} but argument is of type 'char *'
+   89 | USB_INT32S  FILE_Open       (          USB_INT08U  *file_name,
+      |                                        ~~~~~~~~~~~~~^~~~~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:30,
+                 from ../src/Host/usbhost_lpc17xx.h:28,
+                 from ../src/Host/usbhost_lpc17xx.c:25:
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Uart/usbhost_uart.h:49:38: note: expected 'const USB_INT08U *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void  UART_Printf(const USB_INT08U  *format, ...);
+      |                   ~~~~~~~~~~~~~~~~~~~^~~~~~
+In file included from ../src/Main/usbhost_main.c:25:
+../src/Main/usbhost_main.h:37:22: warning: pointer targets in passing argument 1 of 'FILE_Open' differ in signedness [-Wpointer-sign]
+   37 | #define  FILENAME_W  "MSWRITE.TXT"
+      |                      ^~~~~~~~~~~~~
+      |                      |
+      |                      char *
+../src/Main/usbhost_main.c:180:25: note: in expansion of macro 'FILENAME_W'
+  180 |         fdw = FILE_Open(FILENAME_W, RDWR);
+      |                         ^~~~~~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:33,
+                 from ../src/Main/usbhost_main.h:28,
+                 from ../src/Main/usbhost_main.c:25:
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Fat/usbhost_fat.h:89:53: note: expected 'USB_INT08U *' {aka 'unsigned char *'} but argument is of type 'char *'
+   89 | USB_INT32S  FILE_Open       (          USB_INT08U  *file_name,
+      |                                        ~~~~~~~~~~~~~^~~~~~~~~
+In file included from ../src/Host/usbhost_lpc17xx.c:25:
+../src/Host/usbhost_lpc17xx.h:40:43: warning: pointer targets in passing argument 1 of 'UART_Printf' differ in signedness [-Wpointer-sign]
+   40 | #define  PRINT_Err(rc)        UART_Printf("ERROR: In %s at Line %u - rc = %d\n", __FUNCTION__, __LINE__, rc)
+      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                           |
+      |                                           char *
+../src/Host/usbhost_lpc17xx.h:40:43: note: in definition of macro 'PRINT_Err'
+   40 | #define  PRINT_Err(rc)        UART_Printf("ERROR: In %s at Line %u - rc = %d\n", __FUNCTION__, __LINE__, rc)
+      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:31,
+                 from ../src/Main/usbhost_main.h:28,
+                 from ../src/Main/usbhost_main.c:25:
+../src/Main/usbhost_main.c:182:23: warning: pointer targets in passing argument 1 of 'UART_Printf' differ in signedness [-Wpointer-sign]
+  182 |             PRINT_Log("Copying from %s to %s...\n", FILENAME_R, FILENAME_W);
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                       |
+      |                       char *
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Host/usbhost_lpc17xx.h:39:43: note: in definition of macro 'PRINT_Log'
+   39 | #define  PRINT_Log(...)       UART_Printf(__VA_ARGS__)
+      |                                           ^~~~~~~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:30,
+                 from ../src/Host/usbhost_lpc17xx.h:28,
+                 from ../src/Host/usbhost_lpc17xx.c:25:
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Uart/usbhost_uart.h:49:38: note: expected 'const USB_INT08U *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void  UART_Printf(const USB_INT08U  *format, ...);
+      |                   ~~~~~~~~~~~~~~~~~~~^~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:30,
+                 from ../src/Main/usbhost_main.h:28,
+                 from ../src/Main/usbhost_main.c:25:
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Uart/usbhost_uart.h:49:38: note: expected 'const USB_INT08U *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void  UART_Printf(const USB_INT08U  *format, ...);
+      |                   ~~~~~~~~~~~~~~~~~~~^~~~~~
+In file included from ../src/Host/usbhost_lpc17xx.c:25:
+../src/Host/usbhost_lpc17xx.h:40:43: warning: pointer targets in passing argument 1 of 'UART_Printf' differ in signedness [-Wpointer-sign]
+   40 | #define  PRINT_Err(rc)        UART_Printf("ERROR: In %s at Line %u - rc = %d\n", __FUNCTION__, __LINE__, rc)
+      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                           |
+      |                                           char *
+../src/Host/usbhost_lpc17xx.h:40:43: note: in definition of macro 'PRINT_Err'
+   40 | #define  PRINT_Err(rc)        UART_Printf("ERROR: In %s at Line %u - rc = %d\n", __FUNCTION__, __LINE__, rc)
+      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:31,
+                 from ../src/Main/usbhost_main.h:28,
+                 from ../src/Main/usbhost_main.c:25:
+../src/Main/usbhost_main.c:189:23: warning: pointer targets in passing argument 1 of 'UART_Printf' differ in signedness [-Wpointer-sign]
+  189 |             PRINT_Log("Could not open file %s\n", FILENAME_W);
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                       |
+      |                       char *
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Host/usbhost_lpc17xx.h:39:43: note: in definition of macro 'PRINT_Log'
+   39 | #define  PRINT_Log(...)       UART_Printf(__VA_ARGS__)
+      |                                           ^~~~~~~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:30,
+                 from ../src/Host/usbhost_lpc17xx.h:28,
+                 from ../src/Host/usbhost_lpc17xx.c:25:
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Uart/usbhost_uart.h:49:38: note: expected 'const USB_INT08U *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void  UART_Printf(const USB_INT08U  *format, ...);
+      |                   ~~~~~~~~~~~~~~~~~~~^~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:30,
+                 from ../src/Main/usbhost_main.h:28,
+                 from ../src/Main/usbhost_main.c:25:
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Uart/usbhost_uart.h:49:38: note: expected 'const USB_INT08U *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void  UART_Printf(const USB_INT08U  *format, ...);
+      |                   ~~~~~~~~~~~~~~~~~~~^~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:31,
+                 from ../src/Main/usbhost_main.h:28,
+                 from ../src/Main/usbhost_main.c:25:
+../src/Main/usbhost_main.c:193:19: warning: pointer targets in passing argument 1 of 'UART_Printf' differ in signedness [-Wpointer-sign]
+  193 |         PRINT_Log("Copy completed\n");
+      |                   ^~~~~~~~~~~~~~~~~~
+      |                   |
+      |                   char *
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Host/usbhost_lpc17xx.h:39:43: note: in definition of macro 'PRINT_Log'
+Finished building: ../src/MassStorage/usbhost_ms.c
+   39 | #define  PRINT_Log(...)       UART_Printf(__VA_ARGS__)
+      |                                           ^~~~~~~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:30,
+                 from ../src/Main/usbhost_main.h:28,
+                 from ../src/Main/usbhost_main.c:25:
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Uart/usbhost_uart.h:49:38: note: expected 'const USB_INT08U *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void  UART_Printf(const USB_INT08U  *format, ...);
+      |                   ~~~~~~~~~~~~~~~~~~~^~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:31,
+                 from ../src/Main/usbhost_main.h:28,
+                 from ../src/Main/usbhost_main.c:25:
+../src/Main/usbhost_main.c:195:19: warning: pointer targets in passing argument 1 of 'UART_Printf' differ in signedness [-Wpointer-sign]
+  195 |         PRINT_Log("Could not open file %s\n", FILENAME_R);
+      |                   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                   |
+      |                   char *
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Host/usbhost_lpc17xx.h:39:43: note: in definition of macro 'PRINT_Log'
+   39 | #define  PRINT_Log(...)       UART_Printf(__VA_ARGS__)
+      |                                           ^~~~~~~~~~~
+In file included from C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src\Include/usbhost_inc.h:30,
+                 from ../src/Main/usbhost_main.h:28,
+                 from ../src/Main/usbhost_main.c:25:
+C:\Users\student\Documents\f07\embedded-systems\usbhostlite\src/Uart/usbhost_uart.h:49:38: note: expected 'const USB_INT08U *' {aka 'const unsigned char *'} but argument is of type 'char *'
+   49 | void  UART_Printf(const USB_INT08U  *format, ...);
+      |                   ~~~~~~~~~~~~~~~~~~~^~~~~~
+ 
+Finished building: ../src/Fat/usbhost_fat.c
+ 
+Finished building: ../src/Main/usbhost_main.c
+ 
+Finished building: ../src/Host/usbhost_lpc17xx.c
+ 
+Building target: usbhostlite.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\student\Documents\f07\embedded-systems\Lib_CMSISv1p30_LPC17xx\Debug" -Xlinker --gc-sections -Xlinker -Map=usbhostlite.map -mcpu=cortex-m3 -mthumb -T "rdb1768cmsis_uart_Debug.ld" -o "usbhostlite.axf"  ./src/Uart/usbhost_uart.o  ./src/MassStorage/usbhost_ms.o  ./src/Main/usbhost_main.o  ./src/Host/usbhost_lpc17xx.o  ./src/Fat/usbhost_fat.o  ./src/cr_startup_lpc17.o   -lCMSISv1p30_LPC17xx
+Finished building target: usbhostlite.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size usbhostlite.axf; # arm-none-eabi-objdump -h -S usbhostlite.axf >usbhostlite.lss
+   text	   data	    bss	    dec	    hex	filename
+  39964	   2476	    348	  42788	   a724	usbhostlite.axf
+ 
+
+10:00:18 Build Finished. 0 errors, 31 warnings. (took 651ms)
+

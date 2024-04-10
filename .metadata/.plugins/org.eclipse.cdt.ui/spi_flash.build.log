@@ -1,0 +1,34 @@
+10:00:17 **** Build of configuration Debug for project spi_flash ****
+make -r -j16 all 
+Building file: ../src/cr_startup_lpc17.c
+Building file: ../src/main.c
+Invoking: MCU C Compiler
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__NEWLIB__ -I"C:\Users\student\Documents\f07\embedded-systems\Lib_CMSISv1p30_LPC17xx\inc" -I"C:\Users\student\Documents\f07\embedded-systems\Lib_EaBaseBoard\inc" -I"C:\Users\student\Documents\f07\embedded-systems\Lib_MCU\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fmerge-constants -fmacro-prefix-map="../src/"=. -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -fstack-usage -MMD -MP -MF"src/cr_startup_lpc17.d" -MT"src/cr_startup_lpc17.o" -MT"src/cr_startup_lpc17.d" -o "src/cr_startup_lpc17.o" "../src/cr_startup_lpc17.c"
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__NEWLIB__ -I"C:\Users\student\Documents\f07\embedded-systems\Lib_CMSISv1p30_LPC17xx\inc" -I"C:\Users\student\Documents\f07\embedded-systems\Lib_EaBaseBoard\inc" -I"C:\Users\student\Documents\f07\embedded-systems\Lib_MCU\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fmerge-constants -fmacro-prefix-map="../src/"=. -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -fstack-usage -MMD -MP -MF"src/main.d" -MT"src/main.o" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:175:5: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  175 |     memset(b, 0, E_WRITE_LEN);
+      |     ^~~~~~
+../src/main.c:16:1: note: 'memset' is defined in header '<string.h>'; did you forget to '#include <string.h>'?
+   15 | #include "flash.h"
+  +++ |+#include <string.h>
+   16 | 
+Finished building: ../src/cr_startup_lpc17.c
+ 
+Finished building: ../src/main.c
+ 
+Building target: spi_flash.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\student\Documents\f07\embedded-systems\Lib_CMSISv1p30_LPC17xx\Debug" -L"C:\Users\student\Documents\f07\embedded-systems\Lib_EaBaseBoard\Debug" -L"C:\Users\student\Documents\f07\embedded-systems\Lib_MCU\Debug" -Xlinker --gc-sections -Xlinker -Map=spi_flash.map -mcpu=cortex-m3 -mthumb -T "rdb1768cmsis_uart_Debug.ld" -o "spi_flash.axf"  ./src/cr_startup_lpc17.o ./src/main.o   -lCMSISv1p30_LPC17xx -lLib_EaBaseBoard -lLib_MCU
+Finished building target: spi_flash.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size spi_flash.axf; # arm-none-eabi-objdump -h -S spi_flash.axf >spi_flash.lss
+   text	   data	    bss	    dec	    hex	filename
+  10464	     88	     24	  10576	   2950	spi_flash.axf
+ 
+
+10:00:17 Build Finished. 0 errors, 1 warnings. (took 401ms)
+
