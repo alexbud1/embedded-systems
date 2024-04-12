@@ -1,24 +1,18 @@
-10:00:16 **** Build of configuration Debug for project speaker_wav ****
+17:59:11 **** Incremental Build of configuration Debug for project speaker_wav ****
 make -r -j16 all 
-Building file: ../src/cr_startup_lpc17.c
 Building file: ../src/main.c
-Building file: ../src/startupSound_8k.c
-Invoking: MCU C Compiler
-arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__NEWLIB__ -I"C:\Users\student\Documents\f07\embedded-systems\Lib_CMSISv1p30_LPC17xx\inc" -I"C:\Users\student\Documents\f07\embedded-systems\Lib_EaBaseBoard\inc" -I"C:\Users\student\Documents\f07\embedded-systems\Lib_MCU\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fmerge-constants -fmacro-prefix-map="../src/"=. -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -fstack-usage -MMD -MP -MF"src/cr_startup_lpc17.d" -MT"src/cr_startup_lpc17.o" -MT"src/cr_startup_lpc17.d" -o "src/cr_startup_lpc17.o" "../src/cr_startup_lpc17.c"
 Invoking: MCU C Compiler
 arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__NEWLIB__ -I"C:\Users\student\Documents\f07\embedded-systems\Lib_CMSISv1p30_LPC17xx\inc" -I"C:\Users\student\Documents\f07\embedded-systems\Lib_EaBaseBoard\inc" -I"C:\Users\student\Documents\f07\embedded-systems\Lib_MCU\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fmerge-constants -fmacro-prefix-map="../src/"=. -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -fstack-usage -MMD -MP -MF"src/main.d" -MT"src/main.o" -MT"src/main.d" -o "src/main.o" "../src/main.c"
-Invoking: MCU C Compiler
-arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__NEWLIB__ -I"C:\Users\student\Documents\f07\embedded-systems\Lib_CMSISv1p30_LPC17xx\inc" -I"C:\Users\student\Documents\f07\embedded-systems\Lib_EaBaseBoard\inc" -I"C:\Users\student\Documents\f07\embedded-systems\Lib_MCU\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fmerge-constants -fmacro-prefix-map="../src/"=. -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -fstack-usage -MMD -MP -MF"src/startupSound_8k.d" -MT"src/startupSound_8k.o" -MT"src/startupSound_8k.d" -o "src/startupSound_8k.o" "../src/startupSound_8k.c"
 ../src/main.c: In function 'display_sensor_value':
-../src/main.c:282:13: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
-  282 |             sprintf((char*)str, "Temp: %dC", temp); // Using sprintf for simplicity
+../src/main.c:314:13: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  314 |             sprintf((char*)str, "Temp: %02d.%dC", temp / 10, temp % 10);
       |             ^~~~~~~
 ../src/main.c:14:1: note: 'sprintf' is defined in header '<stdio.h>'; did you forget to '#include <stdio.h>'?
    13 | #include "acc.h"
   +++ |+#include <stdio.h>
    14 | 
-../src/main.c:291:22: warning: passing argument 1 of 'acc_read' from incompatible pointer type [-Wincompatible-pointer-types]
-  291 |             acc_read(&x, &y, &z);
+../src/main.c:324:22: warning: passing argument 1 of 'acc_read' from incompatible pointer type [-Wincompatible-pointer-types]
+  324 |             acc_read(&x, &y, &z);
       |                      ^~
       |                      |
       |                      uint32_t * {aka long unsigned int *}
@@ -26,8 +20,8 @@ In file included from ../src/main.c:13:
 C:\Users\student\Documents\f07\embedded-systems\Lib_EaBaseBoard\inc/acc.h:30:24: note: expected 'int8_t *' {aka 'signed char *'} but argument is of type 'uint32_t *' {aka 'long unsigned int *'}
    30 | void acc_read (int8_t *x, int8_t *y, int8_t *z);
       |                ~~~~~~~~^
-../src/main.c:291:26: warning: passing argument 2 of 'acc_read' from incompatible pointer type [-Wincompatible-pointer-types]
-  291 |             acc_read(&x, &y, &z);
+../src/main.c:324:26: warning: passing argument 2 of 'acc_read' from incompatible pointer type [-Wincompatible-pointer-types]
+  324 |             acc_read(&x, &y, &z);
       |                          ^~
       |                          |
       |                          uint32_t * {aka long unsigned int *}
@@ -35,8 +29,8 @@ In file included from ../src/main.c:13:
 C:\Users\student\Documents\f07\embedded-systems\Lib_EaBaseBoard\inc/acc.h:30:35: note: expected 'int8_t *' {aka 'signed char *'} but argument is of type 'uint32_t *' {aka 'long unsigned int *'}
    30 | void acc_read (int8_t *x, int8_t *y, int8_t *z);
       |                           ~~~~~~~~^
-../src/main.c:291:30: warning: passing argument 3 of 'acc_read' from incompatible pointer type [-Wincompatible-pointer-types]
-  291 |             acc_read(&x, &y, &z);
+../src/main.c:324:30: warning: passing argument 3 of 'acc_read' from incompatible pointer type [-Wincompatible-pointer-types]
+  324 |             acc_read(&x, &y, &z);
       |                              ^~
       |                              |
       |                              uint32_t * {aka long unsigned int *}
@@ -44,8 +38,8 @@ In file included from ../src/main.c:13:
 C:\Users\student\Documents\f07\embedded-systems\Lib_EaBaseBoard\inc/acc.h:30:46: note: expected 'int8_t *' {aka 'signed char *'} but argument is of type 'uint32_t *' {aka 'long unsigned int *'}
    30 | void acc_read (int8_t *x, int8_t *y, int8_t *z);
       |                                      ~~~~~~~~^
-../src/main.c:296:22: warning: passing argument 1 of 'acc_read' from incompatible pointer type [-Wincompatible-pointer-types]
-  296 |             acc_read(&x, &y, &z);
+../src/main.c:329:22: warning: passing argument 1 of 'acc_read' from incompatible pointer type [-Wincompatible-pointer-types]
+  329 |             acc_read(&x, &y, &z);
       |                      ^~
       |                      |
       |                      uint32_t * {aka long unsigned int *}
@@ -53,8 +47,8 @@ In file included from ../src/main.c:13:
 C:\Users\student\Documents\f07\embedded-systems\Lib_EaBaseBoard\inc/acc.h:30:24: note: expected 'int8_t *' {aka 'signed char *'} but argument is of type 'uint32_t *' {aka 'long unsigned int *'}
    30 | void acc_read (int8_t *x, int8_t *y, int8_t *z);
       |                ~~~~~~~~^
-../src/main.c:296:26: warning: passing argument 2 of 'acc_read' from incompatible pointer type [-Wincompatible-pointer-types]
-  296 |             acc_read(&x, &y, &z);
+../src/main.c:329:26: warning: passing argument 2 of 'acc_read' from incompatible pointer type [-Wincompatible-pointer-types]
+  329 |             acc_read(&x, &y, &z);
       |                          ^~
       |                          |
       |                          uint32_t * {aka long unsigned int *}
@@ -62,8 +56,8 @@ In file included from ../src/main.c:13:
 C:\Users\student\Documents\f07\embedded-systems\Lib_EaBaseBoard\inc/acc.h:30:35: note: expected 'int8_t *' {aka 'signed char *'} but argument is of type 'uint32_t *' {aka 'long unsigned int *'}
    30 | void acc_read (int8_t *x, int8_t *y, int8_t *z);
       |                           ~~~~~~~~^
-../src/main.c:296:30: warning: passing argument 3 of 'acc_read' from incompatible pointer type [-Wincompatible-pointer-types]
-  296 |             acc_read(&x, &y, &z);
+../src/main.c:329:30: warning: passing argument 3 of 'acc_read' from incompatible pointer type [-Wincompatible-pointer-types]
+  329 |             acc_read(&x, &y, &z);
       |                              ^~
       |                              |
       |                              uint32_t * {aka long unsigned int *}
@@ -71,8 +65,8 @@ In file included from ../src/main.c:13:
 C:\Users\student\Documents\f07\embedded-systems\Lib_EaBaseBoard\inc/acc.h:30:46: note: expected 'int8_t *' {aka 'signed char *'} but argument is of type 'uint32_t *' {aka 'long unsigned int *'}
    30 | void acc_read (int8_t *x, int8_t *y, int8_t *z);
       |                                      ~~~~~~~~^
-../src/main.c:301:22: warning: passing argument 1 of 'acc_read' from incompatible pointer type [-Wincompatible-pointer-types]
-  301 |             acc_read(&x, &y, &z);
+../src/main.c:334:22: warning: passing argument 1 of 'acc_read' from incompatible pointer type [-Wincompatible-pointer-types]
+  334 |             acc_read(&x, &y, &z);
       |                      ^~
       |                      |
       |                      uint32_t * {aka long unsigned int *}
@@ -80,8 +74,8 @@ In file included from ../src/main.c:13:
 C:\Users\student\Documents\f07\embedded-systems\Lib_EaBaseBoard\inc/acc.h:30:24: note: expected 'int8_t *' {aka 'signed char *'} but argument is of type 'uint32_t *' {aka 'long unsigned int *'}
    30 | void acc_read (int8_t *x, int8_t *y, int8_t *z);
       |                ~~~~~~~~^
-../src/main.c:301:26: warning: passing argument 2 of 'acc_read' from incompatible pointer type [-Wincompatible-pointer-types]
-  301 |             acc_read(&x, &y, &z);
+../src/main.c:334:26: warning: passing argument 2 of 'acc_read' from incompatible pointer type [-Wincompatible-pointer-types]
+  334 |             acc_read(&x, &y, &z);
       |                          ^~
       |                          |
       |                          uint32_t * {aka long unsigned int *}
@@ -89,8 +83,8 @@ In file included from ../src/main.c:13:
 C:\Users\student\Documents\f07\embedded-systems\Lib_EaBaseBoard\inc/acc.h:30:35: note: expected 'int8_t *' {aka 'signed char *'} but argument is of type 'uint32_t *' {aka 'long unsigned int *'}
    30 | void acc_read (int8_t *x, int8_t *y, int8_t *z);
       |                           ~~~~~~~~^
-../src/main.c:301:30: warning: passing argument 3 of 'acc_read' from incompatible pointer type [-Wincompatible-pointer-types]
-  301 |             acc_read(&x, &y, &z);
+../src/main.c:334:30: warning: passing argument 3 of 'acc_read' from incompatible pointer type [-Wincompatible-pointer-types]
+  334 |             acc_read(&x, &y, &z);
       |                              ^~
       |                              |
       |                              uint32_t * {aka long unsigned int *}
@@ -99,17 +93,13 @@ C:\Users\student\Documents\f07\embedded-systems\Lib_EaBaseBoard\inc/acc.h:30:46:
    30 | void acc_read (int8_t *x, int8_t *y, int8_t *z);
       |                                      ~~~~~~~~^
 At top level:
-../src/main.c:28:13: warning: 'intToString' defined but not used [-Wunused-function]
-   28 | static void intToString(int value, uint8_t* pBuf, uint32_t len, uint32_t base)
+../src/main.c:29:13: warning: 'intToString' defined but not used [-Wunused-function]
+   29 | static void intToString(int value, uint8_t* pBuf, uint32_t len, uint32_t base)
       |             ^~~~~~~~~~~
 ../src/main.c:21:16: warning: 'buf' defined but not used [-Wunused-variable]
    21 | static uint8_t buf[10];
       |                ^~~
-Finished building: ../src/cr_startup_lpc17.c
- 
-Finished building: ../src/startupSound_8k.c
 Finished building: ../src/main.c
- 
  
 Building target: speaker_wav.axf
 Invoking: MCU Linker
@@ -120,8 +110,8 @@ make --no-print-directory post-build
 Performing post-build steps
 arm-none-eabi-size speaker_wav.axf; # arm-none-eabi-objdump -h -S speaker_wav.axf >speaker_wav.lss
    text	   data	    bss	    dec	    hex	filename
-  71736	   2492	    996	  75224	  125d8	speaker_wav.axf
+  71924	   2492	    996	  75412	  12694	speaker_wav.axf
  
 
-10:00:17 Build Finished. 0 errors, 12 warnings. (took 452ms)
+17:59:12 Build Finished. 0 errors, 12 warnings. (took 502ms)
 

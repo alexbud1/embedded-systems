@@ -24,6 +24,7 @@ static int displayState = 0; // Used to switch between sensor values
 // Forward declarations
 void init_sensors_and_oled();
 void display_sensor_value();
+void engine_init();
 
 static void intToString(int value, uint8_t* pBuf, uint32_t len, uint32_t base)
 {
@@ -208,6 +209,7 @@ void playSound() {
 
 int main(void) {
 	PINSEL_CFG_Type PinCfg;
+	engine_init();
     joystick_init();
     init_sensors_and_oled();
     PinCfg.Funcnum = 2;
@@ -244,6 +246,35 @@ int main(void) {
     return 0;
 }
 
+void engine_init() {
+	// Initialize GPIO pins for engine control
+	    PINSEL_CFG_Type PinCfg;
+
+	    // Configure pins for engine control (EN, IN1, IN2)
+	    PinCfg.Funcnum = 0;  // Configure as GPIO
+	    PinCfg.OpenDrain = 0;  // Disable open-drain mode
+	    PinCfg.Pinmode = 0;  // Disable pull-up/pull-down resistors
+	    PinCfg.Portnum = 0;  // Port 0 for all engine control pins
+
+	    // EN (Enable) pin configuration
+	    PinCfg.Pinnum = 4;  // Pin 4 for EN
+	    PINSEL_ConfigPin(&PinCfg);  // Configure pin as GPIO
+	    GPIO_SetDir(0, (1 << 4), 1);  // Set pin 4 as output
+	    GPIO_SetValue(0, (1 << 4));  // Set EN high initially
+
+	    // IN1 and IN2 pins configuration
+	    PinCfg.Pinnum = 8;  // Pin 8 for IN1
+	    PINSEL_ConfigPin(&PinCfg);  // Configure pin as GPIO
+	    GPIO_SetDir(0, (1 << 8), 1);  // Set pin 8 as output
+	    GPIO_ClearValue(0, (1 << 8));  // Set IN1 low initially
+
+	    PinCfg.Pinnum = 9;  // Pin 9 for IN2
+	    PINSEL_ConfigPin(&PinCfg);  // Configure pin as GPIO
+	    GPIO_SetDir(0, (1 << 9), 1);  // Set pin 9 as output
+	    GPIO_ClearValue(0, (1 << 9));  // Set IN2 low initially
+}
+
+
 void init_sensors_and_oled() {
     // Initialize SSP for OLED
     init_ssp();
@@ -279,7 +310,9 @@ void display_sensor_value() {
     switch(displayState) {
         case 0: // Temperature
             temp = temp_read();
-            sprintf((char*)str, "Temp: %dC", temp); // Using sprintf for simplicity
+            //sprintf((char*)str, "Temp: %dC", temp); // Using sprintf for simplicity
+            sprintf((char*)str, "Temp: %02d.%dC", temp / 10, temp % 10);
+
             oled_putString(1, 0, str, OLED_COLOR_BLACK, OLED_COLOR_WHITE);
             break;
         case 1: // Light
