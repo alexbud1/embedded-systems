@@ -20,11 +20,14 @@ extern int sound_sz;
 static uint32_t msTicks = 0;
 static uint8_t buf[10];
 static int displayState = 0; // Used to switch between sensor values
+uint8_t btn1 = 0;
 
 // Forward declarations
 void init_sensors_and_oled();
 void display_sensor_value();
 void engine_init();
+//void engine_stop();
+void speaker_init();
 
 static void intToString(int value, uint8_t* pBuf, uint32_t len, uint32_t base)
 {
@@ -195,6 +198,18 @@ void playSound() {
     uint32_t sampleRate = 0;
     uint32_t delay = 0;
 
+    /*GPIO_SetDir(2, 1<<0, 1);
+    GPIO_SetDir(2, 1<<1, 1);
+
+    GPIO_SetDir(0, 1<<27, 1);
+    GPIO_SetDir(0, 1<<28, 1);
+    GPIO_SetDir(2, 1<<13, 1);
+    GPIO_SetDir(0, 1<<26, 1);
+
+    GPIO_ClearValue(0, 1<<27); //LM4811-clk
+    GPIO_ClearValue(0, 1<<28); //LM4811-up/dn
+    GPIO_ClearValue(2, 1<<13); //LM4811-shutdn*/
+
     /* Basic checks on WAV format - assuming sound_8k is already validated or static */
     sampleRate = (sound_8k[24] | (sound_8k[25] << 8) |
                   (sound_8k[26] << 16) | (sound_8k[27] << 24));
@@ -209,7 +224,7 @@ void playSound() {
 
 int main(void) {
 	PINSEL_CFG_Type PinCfg;
-	engine_init();
+	speaker_init();
     joystick_init();
     init_sensors_and_oled();
     PinCfg.Funcnum = 2;
@@ -266,7 +281,7 @@ void engine_init() {
 	    PinCfg.Pinnum = 8;  // Pin 8 for IN1
 	    PINSEL_ConfigPin(&PinCfg);  // Configure pin as GPIO
 	    GPIO_SetDir(0, (1 << 8), 1);  // Set pin 8 as output
-	    GPIO_ClearValue(0, (1 << 8));  // Set IN1 low initially
+	    GPIO_SetValue(0, (1 << 8));  // Set IN1 low initially
 
 	    PinCfg.Pinnum = 9;  // Pin 9 for IN2
 	    PINSEL_ConfigPin(&PinCfg);  // Configure pin as GPIO
@@ -274,6 +289,12 @@ void engine_init() {
 	    GPIO_ClearValue(0, (1 << 9));  // Set IN2 low initially
 }
 
+void engine_stop() {
+    // Clear all engine control pins (EN, IN1, IN2)
+    GPIO_ClearValue(0, (1 << 4));  // Clear EN (Port 0, Pin 4)
+    GPIO_ClearValue(0, (1 << 8));  // Clear IN1 (Port 0, Pin 8)
+    GPIO_ClearValue(0, (1 << 9));  // Clear IN2 (Port 0, Pin 9)
+}
 
 void init_sensors_and_oled() {
     // Initialize SSP for OLED
@@ -310,7 +331,6 @@ void display_sensor_value() {
     switch(displayState) {
         case 0: // Temperature
             temp = temp_read();
-            //sprintf((char*)str, "Temp: %dC", temp); // Using sprintf for simplicity
             sprintf((char*)str, "Temp: %02d.%dC", temp / 10, temp % 10);
 
             oled_putString(1, 0, str, OLED_COLOR_BLACK, OLED_COLOR_WHITE);
@@ -335,8 +355,37 @@ void display_sensor_value() {
             sprintf((char*)str, "Acc Z: %d", z);
             oled_putString(1, 0, str, OLED_COLOR_BLACK, OLED_COLOR_WHITE);
             break;
+        case 5: //Turn on motor
+        	//btn1 = ((GPIO_ReadValue(0) >> 4) & 0x01);
+        	//if(btn1 == 0) {
+        		//sprintf((char*)str, "Motor is ON");
+        		//oled_putString(1, 0, str, OLED_COLOR_BLACK, OLED_COLOR_WHITE);
+        		engine_init();
+        	/*} else {
+        		sprintf((char*)str, "Motor is ON");
+        		oled_putString(1, 0, str, OLED_COLOR_BLACK, OLED_COLOR_WHITE);
+        		engine_stop();
+        	}*/
+        	break;
         default:
             oled_putString(1, 0, (uint8_t*)"Select sensor", OLED_COLOR_BLACK, OLED_COLOR_WHITE);
             break;
+
+        engine_stop();
     }
 }
+
+void speaker_init(){
+	GPIO_SetDir(2, 1<<0, 1);
+	GPIO_SetDir(2, 1<<1, 1);
+
+	GPIO_SetDir(0, 1<<27, 1);
+	GPIO_SetDir(0, 1<<28, 1);
+	GPIO_SetDir(2, 1<<13, 1);
+	GPIO_SetDir(0, 1<<26, 1);
+
+	GPIO_ClearValue(0, 1<<27); //LM4811-clk
+	GPIO_ClearValue(0, 1<<28); //LM4811-up/dn
+	GPIO_ClearValue(2, 1<<13); //LM4811-shutdn
+}
+
