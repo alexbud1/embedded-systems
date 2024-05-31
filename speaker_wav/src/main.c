@@ -11,16 +11,19 @@
 #include "light.h"
 #include "temp.h"
 #include "acc.h"
+#include "pca9532.h"
 
 extern const unsigned char sound_8k[];
 extern int sound_sz;
 
 #define UART_DEV LPC_UART3
+#define ACCEL_THRESHOLD 300
 
 static uint32_t msTicks = 0;
 static uint8_t buf[10];
 static int displayState = 0; // Used to switch between sensor values
 uint8_t btn1 = 0;
+int32_t prev_x = 0, prev_y = 0, prev_z = 0;
 
 // Forward declarations
 void init_sensors_and_oled();
@@ -222,6 +225,45 @@ void playSound() {
 }
 
 
+void check_light_and_control_leds() {
+    uint32_t light = light_read();
+    uint16_t ledOn = 0;
+    uint16_t ledOff = 0xFFFF; // All LEDs off initially
+
+    if (light < 300) {
+        ledOn = 0xFFFF; // Turn on all LEDs
+        ledOff = 0x0000; // Turn off no LEDs
+    }
+
+    pca9532_setLeds(ledOn, ledOff);
+}
+
+void check_accelerometer_and_trigger_alarm() {
+    int32_t x, y, z;
+    acc_read(&x, &y, &z);
+
+    // Calculate the difference from the previous values
+    int32_t diff_x = x - prev_x;
+    int32_t diff_y = y - prev_y;
+    int32_t diff_z = z - prev_z;
+
+    // Update previous values
+    prev_x = x;
+    prev_y = y;
+    prev_z = z;
+
+    // Check if the difference exceeds the threshold
+    if (abs(diff_x) + abs(diff_y) +abs(diff_z)> ACCEL_THRESHOLD ) {
+        // Trigger the alarm sound
+    	for (int i = 0; i < 100; i++) { // Play a louder and longer tone
+    	            DAC_UpdateValue(LPC_DAC, 600); // Maximum DAC value
+    	            Timer0_us_Wait(100); // Duration of each part of the tone
+    	            DAC_UpdateValue(LPC_DAC, 0); // Reset the DAC value
+    	            Timer0_us_Wait(100); // Pause between tones
+    	        }
+    }
+}
+
 int main(void) {
 	PINSEL_CFG_Type PinCfg;
 	speaker_init();
@@ -235,11 +277,15 @@ int main(void) {
     PINSEL_ConfigPin(&PinCfg);
     DAC_Init(LPC_DAC);
     init_uart();
+    pca9532_init();
 
 
     if (SysTick_Config(SystemCoreClock / 1000)) {
         while (1);  // Capture error
     }
+
+    // Initialize previous accelerometer values
+    acc_read(&prev_x, &prev_y, &prev_z);
 
     while (1) {
         uint8_t joyState = joystick_read();
@@ -255,6 +301,8 @@ int main(void) {
             Timer0_Wait(200); // Debounce delay
         }
         display_sensor_value();
+        check_light_and_control_leds();
+        check_accelerometer_and_trigger_alarm();
         Timer0_Wait(200); // Debounce delay
     }
 
@@ -388,4 +436,3 @@ void speaker_init(){
 	GPIO_ClearValue(0, 1<<28); //LM4811-up/dn
 	GPIO_ClearValue(2, 1<<13); //LM4811-shutdn
 }
-
