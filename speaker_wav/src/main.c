@@ -12,7 +12,7 @@
 #include "temp.h"
 #include "acc.h"
 #include "pca9532.h"
-
+#include "led7seg.h"  
 extern const unsigned char sound_8k[];
 extern int sound_sz;
 
@@ -31,6 +31,8 @@ void display_sensor_value();
 void engine_init();
 //void engine_stop();
 void speaker_init();
+void check_light_and_control_leds();
+void check_accelerometer_and_trigger_alarm();
 
 static void intToString(int value, uint8_t* pBuf, uint32_t len, uint32_t base)
 {
@@ -67,7 +69,6 @@ static void intToString(int value, uint8_t* pBuf, uint32_t len, uint32_t base)
         tmpValue /= base;
     } while(tmpValue > 0);
 
-
     if (pos > len)
     {
         // the len parameter is invalid.
@@ -96,83 +97,81 @@ static uint32_t getTicks(void)
 
 static void init_ssp(void)
 {
-	SSP_CFG_Type SSP_ConfigStruct;
-	PINSEL_CFG_Type PinCfg;
+    SSP_CFG_Type SSP_ConfigStruct;
+    PINSEL_CFG_Type PinCfg;
 
-	/*
-	 * Initialize SPI pin connect
-	 * P0.7 - SCK;
-	 * P0.8 - MISO
-	 * P0.9 - MOSI
-	 * P2.2 - SSEL - used as GPIO
-	 */
-	PinCfg.Funcnum = 2;
-	PinCfg.OpenDrain = 0;
-	PinCfg.Pinmode = 0;
-	PinCfg.Portnum = 0;
-	PinCfg.Pinnum = 7;
-	PINSEL_ConfigPin(&PinCfg);
-	PinCfg.Pinnum = 8;
-	PINSEL_ConfigPin(&PinCfg);
-	PinCfg.Pinnum = 9;
-	PINSEL_ConfigPin(&PinCfg);
-	PinCfg.Funcnum = 0;
-	PinCfg.Portnum = 2;
-	PinCfg.Pinnum = 2;
-	PINSEL_ConfigPin(&PinCfg);
+    /*
+     * Initialize SPI pin connect
+     * P0.7 - SCK;
+     * P0.8 - MISO
+     * P0.9 - MOSI
+     * P2.2 - SSEL - used as GPIO
+     */
+    PinCfg.Funcnum = 2;
+    PinCfg.OpenDrain = 0;
+    PinCfg.Pinmode = 0;
+    PinCfg.Portnum = 0;
+    PinCfg.Pinnum = 7;
+    PINSEL_ConfigPin(&PinCfg);
+    PinCfg.Pinnum = 8;
+    PINSEL_ConfigPin(&PinCfg);
+    PinCfg.Pinnum = 9;
+    PINSEL_ConfigPin(&PinCfg);
+    PinCfg.Funcnum = 0;
+    PinCfg.Portnum = 2;
+    PinCfg.Pinnum = 2;
+    PINSEL_ConfigPin(&PinCfg);
 
-	SSP_ConfigStructInit(&SSP_ConfigStruct);
+    SSP_ConfigStructInit(&SSP_ConfigStruct);
 
-	// Initialize SSP peripheral with parameter given in structure above
-	SSP_Init(LPC_SSP1, &SSP_ConfigStruct);
+    // Initialize SSP peripheral with parameter given in structure above
+    SSP_Init(LPC_SSP1, &SSP_ConfigStruct);
 
-	// Enable SSP peripheral
-	SSP_Cmd(LPC_SSP1, ENABLE);
-
+    // Enable SSP peripheral
+    SSP_Cmd(LPC_SSP1, ENABLE);
 }
 
 static void init_i2c(void)
 {
-	PINSEL_CFG_Type PinCfg;
+    PINSEL_CFG_Type PinCfg;
 
-	/* Initialize I2C2 pin connect */
-	PinCfg.Funcnum = 2;
-	PinCfg.Pinnum = 10;
-	PinCfg.Portnum = 0;
-	PINSEL_ConfigPin(&PinCfg);
-	PinCfg.Pinnum = 11;
-	PINSEL_ConfigPin(&PinCfg);
+    /* Initialize I2C2 pin connect */
+    PinCfg.Funcnum = 2;
+    PinCfg.Pinnum = 10;
+    PinCfg.Portnum = 0;
+    PINSEL_ConfigPin(&PinCfg);
+    PinCfg.Pinnum = 11;
+    PINSEL_ConfigPin(&PinCfg);
 
-	// Initialize I2C peripheral
-	I2C_Init(LPC_I2C2, 100000);
+    // Initialize I2C peripheral
+    I2C_Init(LPC_I2C2, 100000);
 
-	/* Enable I2C1 operation */
-	I2C_Cmd(LPC_I2C2, ENABLE);
+    /* Enable I2C1 operation */
+    I2C_Cmd(LPC_I2C2, ENABLE);
 }
 
 static void init_adc(void)
 {
-	PINSEL_CFG_Type PinCfg;
+    PINSEL_CFG_Type PinCfg;
 
-	/*
-	 * Init ADC pin connect
-	 * AD0.0 on P0.23
-	 */
-	PinCfg.Funcnum = 1;
-	PinCfg.OpenDrain = 0;
-	PinCfg.Pinmode = 0;
-	PinCfg.Pinnum = 23;
-	PinCfg.Portnum = 0;
-	PINSEL_ConfigPin(&PinCfg);
+    /*
+     * Init ADC pin connect
+     * AD0.0 on P0.23
+     */
+    PinCfg.Funcnum = 1;
+    PinCfg.OpenDrain = 0;
+    PinCfg.Pinmode = 0;
+    PinCfg.Pinnum = 23;
+    PinCfg.Portnum = 0;
+    PINSEL_ConfigPin(&PinCfg);
 
-	/* Configuration for ADC :
-	 * 	Frequency at 0.2Mhz
-	 *  ADC channel 0, no Interrupt
-	 */
-	ADC_Init(LPC_ADC, 200000);
-	ADC_IntConfig(LPC_ADC,ADC_CHANNEL_0,DISABLE);
-	ADC_ChannelCmd(LPC_ADC,ADC_CHANNEL_0,ENABLE);
-
+    /* Configuration for ADC :
+     *  Frequency at 0.2Mhz
+     *  ADC channel 0, no Interrupt
+     */
+    ADC_Init(LPC_ADC, 200000);
+    ADC_IntConfig(LPC_ADC,ADC_CHANNEL_0,DISABLE);
+    ADC_ChannelCmd(LPC_ADC,ADC_CHANNEL_0,ENABLE);
 }
 
 void init_uart(void) {
@@ -224,7 +223,6 @@ void playSound() {
     }
 }
 
-
 void check_light_and_control_leds() {
     uint32_t light = light_read();
     uint16_t ledOn = 0;
@@ -253,22 +251,23 @@ void check_accelerometer_and_trigger_alarm() {
     prev_z = z;
 
     // Check if the difference exceeds the threshold
-    if (abs(diff_x) + abs(diff_y) +abs(diff_z)> ACCEL_THRESHOLD ) {
+    if (abs(diff_x) + abs(diff_y) + abs(diff_z) > ACCEL_THRESHOLD) {
         // Trigger the alarm sound
-    	for (int i = 0; i < 100; i++) { // Play a louder and longer tone
-    	            DAC_UpdateValue(LPC_DAC, 600); // Maximum DAC value
-    	            Timer0_us_Wait(100); // Duration of each part of the tone
-    	            DAC_UpdateValue(LPC_DAC, 0); // Reset the DAC value
-    	            Timer0_us_Wait(100); // Pause between tones
-    	        }
+        for (int i = 0; i < 100; i++) { // Play a louder and longer tone
+            DAC_UpdateValue(LPC_DAC, 600); // Maximum DAC value
+            Timer0_us_Wait(100); // Duration of each part of the tone
+            DAC_UpdateValue(LPC_DAC, 0); // Reset the DAC value
+            Timer0_us_Wait(100); // Pause between tones
+        }
     }
 }
 
 int main(void) {
-	PINSEL_CFG_Type PinCfg;
-	speaker_init();
+    PINSEL_CFG_Type PinCfg;
+    speaker_init();
     joystick_init();
     init_sensors_and_oled();
+    led7seg_init(); // Initialize the 7-segment display
     PinCfg.Funcnum = 2;
     PinCfg.OpenDrain = 0;
     PinCfg.Pinmode = 0;
@@ -278,7 +277,6 @@ int main(void) {
     DAC_Init(LPC_DAC);
     init_uart();
     pca9532_init();
-
 
     if (SysTick_Config(SystemCoreClock / 1000)) {
         while (1);  // Capture error
@@ -310,31 +308,31 @@ int main(void) {
 }
 
 void engine_init() {
-	// Initialize GPIO pins for engine control
-	    PINSEL_CFG_Type PinCfg;
+    // Initialize GPIO pins for engine control
+    PINSEL_CFG_Type PinCfg;
 
-	    // Configure pins for engine control (EN, IN1, IN2)
-	    PinCfg.Funcnum = 0;  // Configure as GPIO
-	    PinCfg.OpenDrain = 0;  // Disable open-drain mode
-	    PinCfg.Pinmode = 0;  // Disable pull-up/pull-down resistors
-	    PinCfg.Portnum = 0;  // Port 0 for all engine control pins
+    // Configure pins for engine control (EN, IN1, IN2)
+    PinCfg.Funcnum = 0;  // Configure as GPIO
+    PinCfg.OpenDrain = 0;  // Disable open-drain mode
+    PinCfg.Pinmode = 0;  // Disable pull-up/pull-down resistors
+    PinCfg.Portnum = 0;  // Port 0 for all engine control pins
 
-	    // EN (Enable) pin configuration
-	    PinCfg.Pinnum = 4;  // Pin 4 for EN
-	    PINSEL_ConfigPin(&PinCfg);  // Configure pin as GPIO
-	    GPIO_SetDir(0, (1 << 4), 1);  // Set pin 4 as output
-	    GPIO_SetValue(0, (1 << 4));  // Set EN high initially
+    // EN (Enable) pin configuration
+    PinCfg.Pinnum = 4;  // Pin 4 for EN
+    PINSEL_ConfigPin(&PinCfg);  // Configure pin as GPIO
+    GPIO_SetDir(0, (1 << 4), 1);  // Set pin 4 as output
+    GPIO_SetValue(0, (1 << 4));  // Set EN high initially
 
-	    // IN1 and IN2 pins configuration
-	    PinCfg.Pinnum = 8;  // Pin 8 for IN1
-	    PINSEL_ConfigPin(&PinCfg);  // Configure pin as GPIO
-	    GPIO_SetDir(0, (1 << 8), 1);  // Set pin 8 as output
-	    GPIO_SetValue(0, (1 << 8));  // Set IN1 low initially
+    // IN1 and IN2 pins configuration
+    PinCfg.Pinnum = 8;  // Pin 8 for IN1
+    PINSEL_ConfigPin(&PinCfg);  // Configure pin as GPIO
+    GPIO_SetDir(0, (1 << 8), 1);  // Set pin 8 as output
+    GPIO_SetValue(0, (1 << 8));  // Set IN1 low initially
 
-	    PinCfg.Pinnum = 9;  // Pin 9 for IN2
-	    PINSEL_ConfigPin(&PinCfg);  // Configure pin as GPIO
-	    GPIO_SetDir(0, (1 << 9), 1);  // Set pin 9 as output
-	    GPIO_ClearValue(0, (1 << 9));  // Set IN2 low initially
+    PinCfg.Pinnum = 9;  // Pin 9 for IN2
+    PINSEL_ConfigPin(&PinCfg);  // Configure pin as GPIO
+    GPIO_SetDir(0, (1 << 9), 1);  // Set pin 9 as output
+    GPIO_ClearValue(0, (1 << 9));  // Set IN2 low initially
 }
 
 void engine_stop() {
@@ -368,7 +366,6 @@ void init_sensors_and_oled() {
     acc_init();
 }
 
-
 void display_sensor_value() {
     int32_t temp;
     uint32_t light, x, y, z;
@@ -380,59 +377,54 @@ void display_sensor_value() {
         case 0: // Temperature
             temp = temp_read();
             sprintf((char*)str, "Temp: %02d.%dC", temp / 10, temp % 10);
-
             oled_putString(1, 0, str, OLED_COLOR_BLACK, OLED_COLOR_WHITE);
+            led7seg_setChar('1', FALSE); // Display "1" on 7-segment for Temperature
             break;
         case 1: // Light
             light = light_read();
             sprintf((char*)str, "Light: %dLux", light);
             oled_putString(1, 0, str, OLED_COLOR_BLACK, OLED_COLOR_WHITE);
+            led7seg_setChar('2', FALSE); // Display "2" on 7-segment for Light
             break;
         case 2: // Accelerometer X
             acc_read(&x, &y, &z);
             sprintf((char*)str, "Acc X: %d", x);
             oled_putString(1, 0, str, OLED_COLOR_BLACK, OLED_COLOR_WHITE);
+            led7seg_setChar('3', FALSE); // Display "3" on 7-segment for Accelerometer X
             break;
         case 3: // Accelerometer Y
             acc_read(&x, &y, &z);
             sprintf((char*)str, "Acc Y: %d", y);
             oled_putString(1, 0, str, OLED_COLOR_BLACK, OLED_COLOR_WHITE);
+            led7seg_setChar('4', FALSE); // Display "4" on 7-segment for Accelerometer Y
             break;
         case 4: // Accelerometer Z
             acc_read(&x, &y, &z);
             sprintf((char*)str, "Acc Z: %d", z);
             oled_putString(1, 0, str, OLED_COLOR_BLACK, OLED_COLOR_WHITE);
+            led7seg_setChar('5', FALSE); // Display "5" on 7-segment for Accelerometer Z
             break;
-        case 5: //Turn on motor
-        	//btn1 = ((GPIO_ReadValue(0) >> 4) & 0x01);
-        	//if(btn1 == 0) {
-        		//sprintf((char*)str, "Motor is ON");
-        		//oled_putString(1, 0, str, OLED_COLOR_BLACK, OLED_COLOR_WHITE);
-        		engine_init();
-        	/*} else {
-        		sprintf((char*)str, "Motor is ON");
-        		oled_putString(1, 0, str, OLED_COLOR_BLACK, OLED_COLOR_WHITE);
-        		engine_stop();
-        	}*/
-        	break;
+        case 5: // Turn on motor
+            engine_init();
+            led7seg_setChar('6', FALSE); // Display "6" on 7-segment for Motor On
+            break;
         default:
             oled_putString(1, 0, (uint8_t*)"Select sensor", OLED_COLOR_BLACK, OLED_COLOR_WHITE);
+            led7seg_setChar('0', FALSE); // Display "0" on 7-segment for default case
             break;
-
-        engine_stop();
     }
 }
 
 void speaker_init(){
-	GPIO_SetDir(2, 1<<0, 1);
-	GPIO_SetDir(2, 1<<1, 1);
+    GPIO_SetDir(2, 1<<0, 1);
+    GPIO_SetDir(2, 1<<1, 1);
 
-	GPIO_SetDir(0, 1<<27, 1);
-	GPIO_SetDir(0, 1<<28, 1);
-	GPIO_SetDir(2, 1<<13, 1);
-	GPIO_SetDir(0, 1<<26, 1);
+    GPIO_SetDir(0, 1<<27, 1);
+    GPIO_SetDir(0, 1<<28, 1);
+    GPIO_SetDir(2, 1<<13, 1);
+    GPIO_SetDir(0, 1<<26, 1);
 
-	GPIO_ClearValue(0, 1<<27); //LM4811-clk
-	GPIO_ClearValue(0, 1<<28); //LM4811-up/dn
-	GPIO_ClearValue(2, 1<<13); //LM4811-shutdn
+    GPIO_ClearValue(0, 1<<27); //LM4811-clk
+    GPIO_ClearValue(0, 1<<28); //LM4811-up/dn
+    GPIO_ClearValue(2, 1<<13); //LM4811-shutdn
 }
