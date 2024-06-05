@@ -29,7 +29,8 @@ int32_t prev_x = 0, prev_y = 0, prev_z = 0;
 void init_sensors_and_oled();
 void display_sensor_value();
 void engine_init();
-//void engine_stop();
+void engine_run();
+void engine_stop();
 void speaker_init();
 void check_light_and_control_leds();
 void check_accelerometer_and_trigger_alarm();
@@ -267,6 +268,7 @@ int main(void) {
     speaker_init();
     joystick_init();
     init_sensors_and_oled();
+    engine_init();
     led7seg_init(); // Initialize the 7-segment display
     PinCfg.Funcnum = 2;
     PinCfg.OpenDrain = 0;
@@ -309,37 +311,50 @@ int main(void) {
 
 void engine_init() {
     // Initialize GPIO pins for engine control
-    PINSEL_CFG_Type PinCfg;
+    PINSEL_CFG_Type INPinCfg;
+    PINSEL_CFG_Type ENPinCfg;
 
-    // Configure pins for engine control (EN, IN1, IN2)
-    PinCfg.Funcnum = 0;  // Configure as GPIO
-    PinCfg.OpenDrain = 0;  // Disable open-drain mode
-    PinCfg.Pinmode = 0;  // Disable pull-up/pull-down resistors
-    PinCfg.Portnum = 0;  // Port 0 for all engine control pins
+    // Configure pins for engine control (EN)
+    ENPinCfg.Funcnum = 0;  // Configure as GPIO
+    ENPinCfg.OpenDrain = 0;  // Disable open-drain mode
+    ENPinCfg.Pinmode = 0;  // Disable pull-up/pull-down resistors
+    ENPinCfg.Portnum = 3;  // Port 0 for all engine control pins
 
     // EN (Enable) pin configuration
-    PinCfg.Pinnum = 4;  // Pin 4 for EN
-    PINSEL_ConfigPin(&PinCfg);  // Configure pin as GPIO
-    GPIO_SetDir(0, (1 << 4), 1);  // Set pin 4 as output
-    GPIO_SetValue(0, (1 << 4));  // Set EN high initially
+    INPinCfg.Pinnum = 3;  // Pin 3 for EN
+    PINSEL_ConfigPin(&INPinCfg);  // Configure pin as GPIO
+    GPIO_SetDir(3, (1 << 3), 1);  // Set pin 4 as output
+    //GPIO_SetValue(3, (1 << 3));  // Set EN high initially
+
+    // Configure pins for engine control (IN1, IN2)
+    INPinCfg.Funcnum = 0;  // Configure as GPIO
+    INPinCfg.OpenDrain = 0;  // Disable open-drain mode
+    INPinCfg.Pinmode = 0;  // Disable pull-up/pull-down resistors
+    INPinCfg.Portnum = 2;  // Port 0 for all engine control pins
 
     // IN1 and IN2 pins configuration
-    PinCfg.Pinnum = 8;  // Pin 8 for IN1
-    PINSEL_ConfigPin(&PinCfg);  // Configure pin as GPIO
-    GPIO_SetDir(0, (1 << 8), 1);  // Set pin 8 as output
-    GPIO_SetValue(0, (1 << 8));  // Set IN1 low initially
+    INPinCfg.Pinnum = 6;  // Pin 6 for IN1
+    PINSEL_ConfigPin(&INPinCfg);  // Configure pin as GPIO
+    GPIO_SetDir(2, (1 << 6), 1);  // Set pin 6 as output
+    //GPIO_SetValue(2, (1 << 6));  // Set IN1 low initially
 
-    PinCfg.Pinnum = 9;  // Pin 9 for IN2
-    PINSEL_ConfigPin(&PinCfg);  // Configure pin as GPIO
-    GPIO_SetDir(0, (1 << 9), 1);  // Set pin 9 as output
-    GPIO_ClearValue(0, (1 << 9));  // Set IN2 low initially
+    INPinCfg.Pinnum = 9;  // Pin 9 for IN2
+    PINSEL_ConfigPin(&INPinCfg);  // Configure pin as GPIO
+    GPIO_SetDir(2, (1 << 9), 1);  // Set pin 9 as output
+    //GPIO_ClearValue(2, (1 << 9));  // Set IN2 low initially
+}
+
+void engine_run(){
+    GPIO_SetValue(3, (1 << 3));  // Set EN high initially
+    GPIO_SetValue(2, (1 << 6));  // Set IN1 low initially
+    GPIO_ClearValue(2, (1 << 9));  // Set IN2 low initially
 }
 
 void engine_stop() {
     // Clear all engine control pins (EN, IN1, IN2)
-    GPIO_ClearValue(0, (1 << 4));  // Clear EN (Port 0, Pin 4)
-    GPIO_ClearValue(0, (1 << 8));  // Clear IN1 (Port 0, Pin 8)
-    GPIO_ClearValue(0, (1 << 9));  // Clear IN2 (Port 0, Pin 9)
+    GPIO_ClearValue(3, (1 << 3));  // Clear EN (Port 3, Pin 3)
+    GPIO_ClearValue(2, (1 << 6));  // Clear IN1 (Port 2, Pin 6)
+    GPIO_ClearValue(2, (1 << 9));  // Clear IN2 (Port 2, Pin 9)
 }
 
 void init_sensors_and_oled() {
@@ -405,7 +420,7 @@ void display_sensor_value() {
             led7seg_setChar('5', FALSE); // Display "5" on 7-segment for Accelerometer Z
             break;
         case 5: // Turn on motor
-            engine_init();
+            engine_run();
             led7seg_setChar('6', FALSE); // Display "6" on 7-segment for Motor On
             break;
         default:
